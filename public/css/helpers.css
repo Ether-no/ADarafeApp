@@ -1,0 +1,598 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Baskervville:400,400i&display=swap&subset=latin-ext');
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+html {
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+
+/* Inicia estilos para inmovilizar el navbar */
+
+#header {
+    width: 100%;
+    height: 25vh;
+    background-color: white;
+    position: relative;
+}
+
+.fixed-per {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 20;
+}
+
+.button-card-products {
+    margin-top: 0.3rem;
+}
+
+
+/* Finaliza estilos para inmovilizar el navbar */
+
+.hr-color {
+    border-color: #ffffff;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.desc-padd {
+    padding: 0% 3%;
+}
+
+.desc-padd-margin {
+    margin-top: 0.5cm;
+}
+
+.breadcrumb-space {
+    margin-left: 3cm;
+}
+
+.breadcrumb-add {
+    background-color: rgb(255, 255, 255);
+    font-size: 0.5cm;
+}
+
+.details-italic {
+    font-style: italic;
+}
+
+.font-h {
+    font-family: 'Baskervville', serif;
+}
+
+.margin-cart {
+    margin-top: 0.9cm;
+}
+
+.margin-cart-top {
+    margin-top: 1.6cm;
+}
+
+.margin-trash {
+    margin-top: 0.5cm;
+}
+
+.login-margin {
+    margin-top: 1.5cm;
+}
+
+.login-margin-right {
+    margin-right: 1cm;
+}
+
+.img-res-head {
+    max-width: 30%;
+    max-height: 30%;
+}
+
+.img-navleft-res {
+    height: 5rem;
+}
+
+.forgot-space-top {
+    margin-top: 1.5cm;
+}
+
+.forgot-space-bottom {
+    margin-bottom: 2cm;
+}
+
+.forgot-btn-send {
+    margin-top: 1cm;
+    margin-bottom: 1cm;
+}
+
+.card-size-forgot {
+    height: 5.5cm;
+}
+
+
+/* ******************************************* */
+
+.size-dropdown-first {
+    max-width: 5.5cm;
+}
+
+.head-sidebar {
+    padding-top: 1rem;
+}
+
+.opt-nav-lft {
+    margin-left: 0.5cm;
+}
+
+.opt-nav-rgth {
+    margin-right: 0.5cm;
+}
+
+.img-menu-sidebar {
+    max-width: 15%;
+    max-width: 15%;
+    padding-top: 0.4cm;
+}
+
+.img-menu-sidebar-darafe {
+    max-width: 85px;
+    max-width: 85px;
+    padding-top: 0.3cm;
+}
+
+.icon-sidebar-opt {
+    max-width: 8%;
+    max-width: 8%;
+    margin-right: 0.7cm;
+}
+
+.font-head-sidebar {
+    max-width: 40%;
+    max-width: 40%;
+}
+
+.header-info-gen {
+    background-color: #ffffff;
+    color: #6e6e6e;
+    font-size: 15px;
+    margin-left: 10px;
+}
+
+.header-info-gen:hover {
+    color: rgb(0, 132, 255);
+}
+
+.head-top-info ul li {
+    display: inline-block;
+    padding: 0 1.5rem;
+}
+
+
+/* Breadcr */
+
+.bread-info-gen {
+    color: #686868;
+    font-size: 17px;
+    margin-left: 7px;
+}
+
+.bread-info-gen:hover {
+    color: rgb(0, 132, 255);
+}
+
+.bread-top-info ul li {
+    display: inline-block;
+}
+
+.bread-back-padd {
+    padding-left: 1cm;
+    padding-top: 0.1rem;
+    padding-bottom: 0.1rem;
+    background-color: rgb(240, 240, 240);
+}
+
+.bread-info-gen-strong {
+    color: #000000;
+    font-size: 17px;
+    margin-left: 7px;
+}
+
+.our-color-gen {
+    background-color: #ececec;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+.img-my-search {
+    max-width: 70%;
+    max-height: 70%;
+}
+
+.size-my-search-table {
+    width: 20%;
+}
+
+
+/* ****************************************************** */
+
+
+/* Social Icons */
+
+.social-icons {
+    margin: 0;
+    padding: 0;
+    width: auto;
+}
+
+.social-icons li {
+    display: inline-block;
+    margin: -1px 1px 0 2px;
+    padding: 0;
+    border-radius: 100%;
+    overflow: visible;
+    -webkit-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.3);
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.3);
+}
+
+.social-icons li a {
+    -webkit-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+    background: #FFF;
+    border-radius: 100%;
+    display: block;
+    height: 1.7em;
+    font-size: 1.5em;
+    line-height: 1.7em;
+    width: 1.7em;
+    text-align: center;
+    color: #999;
+    text-decoration: none;
+}
+
+.social-icons li:hover a {
+    background: #171717;
+    color: #FFF !important;
+}
+
+.social-icons li:hover.social-icons-twitter a {
+    background: #1aa9e1 !important;
+}
+
+.social-icons li:hover.social-icons-facebook a {
+    background: #3b5a9a !important;
+}
+
+.social-icons li:hover.social-icons-linkedin a {
+    background: #0073b2 !important;
+}
+
+.social-icons li:hover.social-icons-darafe a {
+    background: #113720 !important;
+}
+
+.social-icons li:hover.social-icons-rss a {
+    background: #ff8201 !important;
+}
+
+.social-icons li:hover.social-icons-googleplus a {
+    background: #dd4b39 !important;
+}
+
+.social-icons li:hover.social-icons-pinterest a {
+    background: #cc2127 !important;
+}
+
+.social-icons li:hover.social-icons-youtube a {
+    background: #c3191e !important;
+}
+
+.social-icons li:hover.social-icons-instagram a {
+    background: #7c4a3a !important;
+}
+
+.social-icons li:hover.social-icons-skype a {
+    background: #00b0f6 !important;
+}
+
+.social-icons li:hover.social-icons-email a {
+    background: #dd4b39 !important;
+}
+
+.social-icons li:hover.social-icons-vk a {
+    background: #6383a8 !important;
+}
+
+.social-icons li:hover.social-icons-xing a {
+    background: #1a7576 !important;
+}
+
+.social-icons li:hover.social-icons-tumblr a {
+    background: #304e6c !important;
+}
+
+.social-icons li:hover.social-icons-reddit a {
+    background: #ff4107 !important;
+}
+
+.social-icons li:hover.social-icons-dribbble a {
+    background: #ea4c89 !important;
+}
+
+.social-icons.header-top-social-icons li:hover a {
+    color: #FFF;
+}
+
+.social-icons.header-social-icons li a {
+    width: 2.6em;
+    height: 2.6em;
+    font-size: 0.9em;
+    line-height: 2.6em;
+    color: #1c1f21;
+}
+
+.social-icons.header-social-icons li:hover a {
+    color: #FFF;
+}
+
+.social-icons.social-icons-border li a {
+    background: transparent;
+    border: 2px solid #FFF;
+    -webkit-box-sizing: content-box;
+    box-sizing: content-box;
+}
+
+.social-icons.social-icons-transparent li {
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+.social-icons.social-icons-transparent li a {
+    background: transparent;
+}
+
+.social-icons.social-icons-dark li a {
+    color: #FFF;
+    background: #2E3237;
+}
+
+.social-icons.social-icons-light li a {
+    color: #2E3237;
+    background: #f1f3f7;
+}
+
+.social-icons.social-icons-icon-light li a {
+    color: #FFF;
+}
+
+.social-icons.social-icons-icon-dark li a {
+    color: #1c1f21;
+}
+
+.social-icons.social-icons-icon-dark li:hover a {
+    color: #FFF !important;
+}
+
+.social-icons.social-icons-pills li a {
+    color: #FFF;
+    background-color: #CCC;
+    border-radius: 0;
+}
+
+.social-icons.social-icons-1 li a {
+    font-size: 11.2px;
+    font-size: 0.7rem;
+}
+
+.social-icons.social-icons-2 li a {
+    font-size: 12.8px;
+    font-size: 0.8rem;
+}
+
+.social-icons.social-icons-3 li a {
+    font-size: 16px;
+    font-size: 1rem;
+}
+
+.social-icons.social-icons-4 li a {
+    font-size: 19.2px;
+    font-size: 1.2rem;
+}
+
+.social-icons.social-icons-5 li a {
+    font-size: 1.5em;
+}
+
+
+/******************************** Icons footer ****************************************/
+
+.social-icons-foot {
+    margin: 0;
+    padding: 0;
+    width: auto;
+}
+
+.social-icons-foot li {
+    margin: -1px 1px 0 2px;
+    padding: 0;
+    border-radius: 100%;
+    overflow: visible;
+    -webkit-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.3);
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.3);
+}
+
+.social-icons-foot li a {
+    -webkit-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+    background: #FFF;
+    border-radius: 100%;
+    display: block;
+    height: 2em;
+    font-size: 1em;
+    line-height: 2em;
+    width: 2em;
+    text-align: center;
+    color: #999;
+    text-decoration: none;
+}
+
+.social-icons-foot li:hover a {
+    background: #171717;
+    color: #FFF !important;
+}
+
+.social-icons-foot li:hover.social-icons-foot-nosotros a {
+    background: #00b7ff !important;
+}
+
+.social-icons-foot li:hover.social-icons-foot-contacto a {
+    background: #00a18c !important;
+}
+
+.social-icons-foot li:hover.social-icons-foot-productos a {
+    background: #a88100 !important;
+}
+
+.social-icons-foot li:hover.social-icons-foot-termino a {
+    background: #003a00 !important;
+}
+
+.social-icons-foot li:hover.social-icons-foot-aviso a {
+    background: #008134 !important;
+}
+
+.social-icons-foot li:hover.social-icons-foot-login a {
+    background: #0097b2 !important;
+}
+
+.social-icons-foot li:hover.social-icons-foot-darafe a {
+    background: #113720 !important;
+}
+
+.social-icons-foot li:hover.social-icons-foot-facebook a {
+    background: #3b5a9a !important;
+}
+
+.social-icons-foot li:hover.social-icons-foot-instagram a {
+    background: #7f20fc !important;
+}
+
+.social-icons-foot.social-icons-foot-transparent li {
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+.social-icons-foot.social-icons-foot-transparent li a {
+    background: transparent;
+}
+
+.row-foot {
+    margin-top: 2px;
+    display: flex;
+}
+
+.row-foot li {
+    width: 30px;
+    height: 30px;
+}
+
+.row-foot label {
+    font-size: 15px;
+    margin: 1mm;
+    margin-left: 1.5rem;
+    color: #525252;
+}
+
+.a-info-foot {
+    color: #6e6e6e;
+}
+
+.a-info-foot:hover {
+    color: #005ac0;
+}
+
+.social-icons-foot-contact li a {
+    -webkit-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+    border-radius: 100%;
+    display: block;
+    height: 2em;
+    font-size: 1em;
+    line-height: 2em;
+    width: 2em;
+    text-align: center;
+    color: rgb(114, 114, 114);
+    text-decoration: none;
+}
+
+.a-info-foot-contact {
+    color: #6e6e6e;
+}
+
+
+/* +++++++++++++++++++++++++++++  Dashboard */
+
+.container_dash {
+    padding-left: 1cm;
+    padding-right: 1cm;
+}
+
+
+/* +++++++++++++++++++++++++++++++   Alerts helpers */
+
+.swal2-content .select-wrapper input[type=text] {
+    visibility: hidden;
+    display: none;
+}
+
+.swal2-content .select-wrapper .caret {
+    visibility: hidden;
+    display: none;
+}
+
+
+/* +++++++++++++++++++++++++++++++ Alert styles */
+
+.form-text {
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+}
+
+.text-danger {
+    color: red;
+    border: 1px;
+    padding: 4px;
+    border-radius: 0.3em;
+    background-color: rgb(252, 233, 233);
+}
+
+
+/* +++++++++++++++++++++++++++++++++++++++ modal style */
+
+.text-modal-hlp {
+    font-weight: bold;
+}
+
+
+/* +++++++++++++++++++++++++++++++++++++++ Container account */
+
+.container-account {
+    padding-left: 2cm;
+    padding-right: 2cm;
+}
+
+.card .card-image-account img {
+    display: block;
+    border-radius: 2px 2px 0 0;
+    position: relative;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    border-radius: 100%;
+    padding: 1cm;
+}
+
+.img-shop-image {
+    height: 20%;
+    width: 20%;
+}
