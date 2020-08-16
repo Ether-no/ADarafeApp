@@ -124,5 +124,9 @@ class navbarCrud extends Controller
         /* dd($kilate); */
     }
 
+    public function productosIndex(){
+        $products = DB::table('productos')->paginate(8);
+        return view('users.navbar.productos.index', compact('products'));
+    }
 
 }

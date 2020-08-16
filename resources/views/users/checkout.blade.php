@@ -38,63 +38,108 @@
             <form action="">
 
                 <div class="form-group">
-
                     @if (auth()->user())
                         <input type="email" id="email" name="email" value="{{ auth()->user()->email }}" readonly>
                         <label for="email">Correo electrónico</label>
+
+                        <div class="input-field">
+                            <input id="nombre" type="text" class="validate" value="{{$address->nombre}}">
+                            <label for="nombre">Nombre</label>
+                        </div>
+
+                        <div class="input-field">
+                            <input id="apellidos" type="text" class="validate" value="{{$address->apellidos}}">
+                            <label for="apellidos">Apellidos</label>
+                        </div>
+
+                        <div class="input-field">
+                            <input id="calle" type="text" class="validate" value="{{$address->calle}}">
+                            <label for="calle">Calle</label>
+                        </div>
+
+                        <div class="input-field">
+                            <input id="colonia" type="text" class="validate" value="{{$address->colonia}}">
+                            <label for="colonia">Colonia</label>
+                        </div>
+
+                        <div class="input-field">
+                            <input id="municipio" type="text" class="validate" value="{{$address->municipio}}"">
+                            <label for="municipio">Municipio</label>
+                        </div>
+
+                        <div class="input-field">
+                            <input id="ciudad" type="text" class="validate" value="{{$address->ciudad}}">
+                            <label for="ciudad">Ciudad</label>
+                        </div>
+
+                        <div class="input-field">
+                            <input id="estado" type="text" class="validate" value="{{$address->estado}}">
+                            <label for="estado">Estado</label>
+                        </div>
+
+                        <div class="input-field">
+                            <input id="cp" type="text" class="validate" value="{{$address->cp}}">
+                            <label for="cp">C.P.</label>
+                        </div>
+
+                        <div class="input-field">
+                            <input id="telefono" type="text" class="validate" value="{{$address->telefono}}">
+                            <label for="telefono">Teléfono</label>
+                        </div><br>
+
                     @else
                         <div class="input-field">
                             <input type="email" class="validate" id="email" name="email" value="{{ old('email') }}" required>
                             <label for="email">Correo electrónico</label>
                         </div>
 
+                        <div class="input-field">
+                            <input id="nombre" type="text" class="validate">
+                            <label for="nombre">Nombre</label>
+                        </div>
+
+                        <div class="input-field">
+                            <input id="apellidos" type="text" class="validate">
+                            <label for="apellidos">Apellidos</label>
+                        </div>
+
+                        <div class="input-field">
+                            <input id="calle" type="text" class="validate">
+                            <label for="calle">Calle</label>
+                        </div>
+
+                        <div class="input-field">
+                            <input id="colonia" type="text" class="validate">
+                            <label for="colonia">Colonia</label>
+                        </div>
+
+                        <div class="input-field">
+                            <input id="municipio" type="text" class="validate">
+                            <label for="municipio">Municipio</label>
+                        </div>
+
+                        <div class="input-field">
+                            <input id="ciudad" type="text" class="validate">
+                            <label for="ciudad">Ciudad</label>
+                        </div>
+
+                        <div class="input-field">
+                            <input id="estado" type="text" class="validate">
+                            <label for="estado">Estado</label>
+                        </div>
+
+                        <div class="input-field">
+                            <input id="cp" type="text" class="validate">
+                            <label for="cp">C.P.</label>
+                        </div>
+
+                        <div class="input-field">
+                            <input id="telefono" type="text" class="validate">
+                            <label for="telefono">Teléfono</label>
+                        </div><br>
                     @endif
                 </div>
 
-                <div class="input-field">
-                    <input id="nombre" type="text" class="validate">
-                    <label for="nombre">Nombre</label>
-                </div>
-
-                <div class="input-field">
-                    <input id="apellidos" type="text" class="validate">
-                    <label for="apellidos">Apellidos</label>
-                </div>
-
-                <div class="input-field">
-                    <input id="calle" type="text" class="validate">
-                    <label for="calle">Calle</label>
-                </div>
-
-                <div class="input-field">
-                    <input id="colonia" type="text" class="validate">
-                    <label for="colonia">Colonia</label>
-                </div>
-
-                <div class="input-field">
-                    <input id="municipio" type="text" class="validate">
-                    <label for="municipio">Municipio</label>
-                </div>
-
-                <div class="input-field">
-                    <input id="ciudad" type="text" class="validate">
-                    <label for="ciudad">Ciudad</label>
-                </div>
-
-                <div class="input-field">
-                    <input id="estado" type="text" class="validate">
-                    <label for="estado">Estado</label>
-                </div>
-
-                <div class="input-field">
-                    <input id="postalcode" type="text" class="validate">
-                    <label for="postalcode">C.P.</label>
-                </div>
-
-                <div class="input-field">
-                    <input id="telefono" type="text" class="validate">
-                    <label for="telefono">Teléfono</label>
-                </div><br>
 
                 <h5 class="font-h">Detalles del pago</h5><br>
 
@@ -119,16 +164,30 @@
                 </div>
 
 
+                @if (auth()->user())
                 <div class="row">
-                        <button class="waves-effect waves-light btn-small right col m12 m9">Confirmar compra</button>
+                    <a class="waves-effect waves-light btn-small right col m12 m9" href="{{ route('account.address', ['id' => auth()->user()->id]) }}">Modificar mi dirección</a>
+                </div><br>
+                @endif
+
+                <div class="row">
+                    <button class="waves-effect waves-light btn-small right col m12 m9">Confirmar compra</button>
+                </div><br>
+            </form>
+
+            <form action="{{url('/prueba')}}">
+                <div class="row">
+                    <button class="waves-effect waves-light btn-small right col m12 m9">Pagar con mercado pago</button>
                 </div>
             </form>
+
         </div>
-    <form action="{{url('/prueba')}}">
-        <div class="row">
-            <button class="waves-effect waves-light btn-small right col m12 m9">Pagar con mercado pago</button>
-        </div>
-    </form>
+
+
+
+
+
+
 
 
         <div class="col s12 m4 right">

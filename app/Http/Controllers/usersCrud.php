@@ -4,43 +4,20 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use App\producto;
-use Exception;
 
-class CheckoutController extends Controller
+class usersCrud extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($id)
+    public function index()
     {
-        $address =  DB::table('direcciones')->where('user_id','=', $id)->first();
-
-        /* dd($address); */
-
-        $destacados =  DB::table('productos')->where('destacado','=','1')->get();
-        try {
-            $destacados->random(10);
-        }catch(Exception $exception){
-            $destacados;
-        }
-
-        return view('users.checkout', compact('destacados', 'address'));
-    }
-
-    public function index_guess()
-    {
-
-        $destacados =  DB::table('productos')->where('destacado','=','1')->get();
-        try {
-            $destacados->random(10);
-        }catch(Exception $exception){
-            $destacados;
-        }
-
-        return view('users.checkout', compact('destacados'));
+        $users = DB::table('users')
+        ->paginate(10);
+        //dd($users);
+        return view('dashboard.users.index', compact('users'));
     }
 
     /**

@@ -7,9 +7,9 @@
                         <div class="input-field">
                             <input id="search" type="search" name="busca"  required>
                             <label class="label-icon black-text" for="search">
-                             
-                                    <button class="material-icons black-text align-bottom">search</button>
-                               
+
+                                <i class="material-icons">search</i>
+
                             </label>
                             <i class="modal-close material-icons black-text">close</i>
                         </div>

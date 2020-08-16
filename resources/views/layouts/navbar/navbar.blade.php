@@ -57,6 +57,10 @@
                         <li>
                             <a class="black-text" href="{{ route('caballeros') }}">Caballeros</a>
                         </li>
+
+                        <li>
+                            <a class="black-text" href="{{ route('productos') }}">Productos</a>
+                        </li>
                     </div>
 
                     <div class="right opt-nav-rgth">
@@ -97,6 +101,10 @@
                                 style="display: none;">
                                 @csrf
                             </form>
+                        </li>
+
+                        <li>
+                            <a class="black-text" href="{{ route('account.index') }}">&#64;{{auth()->user()->name}}</a>
                         </li>
                         @endguest
 
