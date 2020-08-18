@@ -63,6 +63,9 @@ class productoscrud extends Controller
         if($request->hasFile('Foto')){
             $datosproducto['Foto']=$request->file('Foto')->store('uploads','public');
         }
+        if($request->hasFile('fotograbado')){
+            $datosproducto['fotograbado']=$request->file('fotograbado')->store('uploads','public');
+        }
         $prod = producto::create($datosproducto);
         $countags = count($tags);
         foreach ($tags as $p) {
@@ -140,6 +143,11 @@ class productoscrud extends Controller
             $productos = producto::findOrFail($id);
             unlink($productos->Foto);
             $datosproducto['Foto']=$request->file('Foto')->store('uploads','public');
+        }
+        if($request->hasFile('fotograbado')){
+            $productos = producto::findOrFail($id);
+            unlink($productos->Foto);
+            $datosproducto['fotograbado']=$request->file('fotograbado')->store('uploads','public');
         }
         producto::where('id_productos', "=" , $id)->update($datosproducto);
         $productos = producto::findOrFail($id);

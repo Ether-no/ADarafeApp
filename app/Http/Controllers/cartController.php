@@ -79,6 +79,7 @@ class CartController extends Controller
                         'comprado' => '0',
                         'cantidad' => '1',
                         'foto' => $prod->Foto,
+                        'grabado' => $prod->grabado,
                         'descripcion' => $prod->descripcion,
                         'preciounitario' => $request->precio,
                         'id_productos' => $request->id_productos,

@@ -21,11 +21,16 @@ class CreateProductosTable extends Migration
             $table->string('RFC');
             $table->string('material');
             $table->string('Foto');
+            $table->string('fotograbado')->default(0);
             $table->integer('descuento')->default(0);
             $table->boolean('activo')->default(1);
             $table->boolean('destacado');
+            $table->boolean('grabado');
+            $table->boolean('agrandar');
             $table->enum('kilataje', ['10k', '14k', '18k'])->default('10k');
-            $table->decimal('precio');
+            $table->decimal('precio');  
+            $table->integer('numerominimo')->default(0);
+            $table->integer('numeromaximo')->default(0);
             $table->decimal('peso')->default(0);;
             $table->unsignedBigInteger('id_cat');
             $table->foreign('id_cat')->references('id_cat')->on('categorias');

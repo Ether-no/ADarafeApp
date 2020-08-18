@@ -1,6 +1,33 @@
 $(function(){
     $('#select-categoria').on('change',onSelectCat);
    });
+// $(function(){
+//     $('#radioagrandarvalue1').on('change',OnAgrandar);
+//    });
+var checkboxnum = document.getElementById('radioagrandarvalue1');
+checkboxnum.addEventListener("change", OnAgrandar, true);
+   
+function OnAgrandar(){
+    document.getElementById('numerominimo').style.display = "block";
+    document.getElementById('numeromaximo').style.display = "block";
+}
+var checkboxnum = document.getElementById('radioagrandarvalue0');
+checkboxnum.addEventListener("change", OnnoAgrandar, true);
+   
+function OnnoAgrandar(){
+    document.getElementById('numerominimo').style.display = "none";
+    document.getElementById('numeromaximo').style.display = "none";
+}
+var checkboxgrabar = document.getElementById('radiosgrabar1');
+checkboxgrabar.addEventListener("change", OnGrabar1, true);
+var checkboxnograbar = document.getElementById('radiosgrabar0');
+checkboxnograbar.addEventListener("change", OnGrabar0, true);
+function OnGrabar1(){
+    document.getElementById('fgrabar').style.display = "block";
+}
+function OnGrabar0(){
+    document.getElementById('fgrabar').style.display = "none";
+}
    function onSelectCat(data){
         var catid = $(this).val();
         if (catid != 1){
@@ -28,7 +55,4 @@ $(function(){
        $('#id_subcat').html(html_selectsubcat);
         document.getElementById('selectcat').style.display = "block";
        });
-        
-       
-    //
-   }
+    }

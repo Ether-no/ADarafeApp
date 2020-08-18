@@ -134,14 +134,66 @@
                 <span>No</span>
             </label>
         </p>
-
+        <label for="exampleRadios2">
+            ¿Se puede grabar?
+            </label>
+            <p>
+                <label>
+                <input type="radio" name="grabado" id="radiosgrabar1" value="1" checked="checked">
+                <span>Si</span>
+                </label>
+            </p>
+    
+            <p>
+                <label>
+                    <input type="radio" name="grabado" id="radiosgrabar0" value="0">
+                    <span>No</span>
+                </label>
+            </p>
+            <div id="fgrabar">
+                <label>Foto Grabado</label><br>
+                <input type="file" name="fotograbado" id="fotograbado">
+                @if ($errors->has('fotograbado'))
+                <small class="form-text text-danger">{{ $errors->first('fotograbado') }}</small>
+                @endif
+            </div>
+            <label for="exampleRadios3">
+                ¿Se puede agrandar el numero?
+                </label>
+                <p>
+                    <label>
+                    <input type="radio" name="agrandar" id="radioagrandarvalue1" value="1" checked="checked">
+                    <span>Si</span>
+                    </label>
+                </p>
+        
+                <p>
+                    <label>
+                        <input type="radio" name="agrandar" id="radioagrandarvalue0" value="0">
+                        <span>No</span>
+                    </label>
+                </p>
+                <div class="input-field col s12" id="numerominimo" >
+                    <label for="numerominimo">Numero minimo</label>
+                    <input type="text" class="validate" value="0" name="numerominimo" id="numerominimo">
+                    @if ($errors->has('numerominimo'))
+                    <small class="form-text text-danger">{{ $errors->first('numerominimo') }}</small>
+                    @endif
+                </div>
+                <div class="input-field col s12" id="numeromaximo" >
+                    <label for="numeromaximo">Numero Maximo</label>
+                    <input type="text" class="validate" value="0" name="numeromaximo" id="numeromaximo">
+                    @if ($errors->has('numeromaximo'))
+                    <small class="form-text text-danger">{{ $errors->first('numeromaximo') }}</small>
+                    @endif
+                </div>
         <div>
             <label>Foto</label><br>
             <input type="file" name="Foto" id="Foto">
             @if ($errors->has('Foto'))
             <small class="form-text text-danger">{{ $errors->first('Foto') }}</small>
             @endif
-        </div><br>
+        </div>
 
 		<div class="center">
 			<input type="submit" class="waves-effect waves-light btn white-text" value="Registrar Producto">

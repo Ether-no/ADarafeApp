@@ -17,6 +17,7 @@ class CreateCarritosTable extends Migration
             $table->bigIncrements('idcar');
             $table->boolean('activo');
             $table->boolean('comprado');
+            $table->boolean('grabado');
             $table->integer('cantidad');
             $table->string('foto');
             $table->string('descripcion');
