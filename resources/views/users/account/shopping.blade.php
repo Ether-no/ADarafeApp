@@ -35,7 +35,7 @@
    <div class="row">
 
     <div class="col s12 m4">
-        <h3 class="header">Producto 1</h3>
+        <h3 class="header">Compra #fsdfsf1</h3>
         <div class="card horizontal">
           <div class="card-stacked">
             <div class="card-content">
@@ -53,7 +53,7 @@
       </div>
 
       <div class="col s12 m4">
-        <h3 class="header">Producto 2</h3>
+        <h3 class="header">Compra #gddfssd2</h3>
         <div class="card horizontal">
           <div class="card-stacked">
             <div class="card-content">
@@ -71,7 +71,7 @@
       </div>
 
       <div class="col s12 m4">
-        <h3 class="header">Producto 3</h3>
+        <h3 class="header">Compra #dfsf3</h3>
         <div class="card horizontal">
           <div class="card-stacked">
             <div class="card-content">

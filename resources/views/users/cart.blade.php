@@ -50,11 +50,11 @@
                     </tr>
                 </thead>
                 <tbody>
-                
+
                     @foreach ($idcarrito as $item)
                         <tr>
                             <td class="col m3 s3 margin-cart"><a href="{{ route('detalle', $item->id_productos) }}">
-                                <img class="responsive-img" src="{{ asset($item->foto)}}" alt=""></a> 
+                                <img class="responsive-img" src="{{ asset($item->foto)}}" alt=""></a>
                             </td>
                             <td class="col m3 s3 margin-cart">
                                  <p>{{Str::limit($item->descripcion, 26)}}</p>
@@ -73,10 +73,10 @@
                                     <button type="submit" class="waves-effect waves-light btn-small margin-trash red right">
                                         <i class="fas fa-trash-alt"></i>
                                     </button>
-                                </form> 
+                                </form>
                              </td>
                              <td class="col m3 s3 margin-cart-top">{{ $item->total }}
-                        </tr>     
+                        </tr>
                     @endforeach
                 </tbody>
         </div>
@@ -95,7 +95,11 @@
                     <p>Envio: <b>Gratis</b></p>
                     <hr class="hr-color"><br>
                     <h6>Total: <b>${{ Cart::total() }}</b></h6><br>
-                    <a href="{{ route('checkout.index') }}"class="waves-effect waves-light btn-small right col s12 m12">Checkout</a><br><br>
+                    @if (auth()->user())
+                    <a href="{{ route('checkout.index', ['id' => auth()->user()->id]) }}"class="waves-effect waves-light btn-small right col s12 m12">Checkout</a><br><br>
+                    @else
+                    <a href="{{ route('checkout_guess.index') }}"class="waves-effect waves-light btn-small right col s12 m12">Checkout</a><br><br>
+                    @endif
                 </div>
             </div>
         </div>

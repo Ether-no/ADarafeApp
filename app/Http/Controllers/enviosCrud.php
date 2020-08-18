@@ -4,43 +4,30 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use App\producto;
-use Exception;
 
-class CheckoutController extends Controller
+class enviosCrud extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($id)
+    public function index_envio()
     {
-        $address =  DB::table('direcciones')->where('user_id','=', $id)->first();
-
-        /* dd($address); */
-
-        $destacados =  DB::table('productos')->where('destacado','=','1')->get();
-        try {
-            $destacados->random(10);
-        }catch(Exception $exception){
-            $destacados;
-        }
-
-        return view('users.checkout', compact('destacados', 'address'));
+        return view('dashboard.productos.envios');
     }
 
-    public function index_guess()
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index_inventario()
     {
+        $inventarios = DB::table('Productos')->paginate(8);
 
-        $destacados =  DB::table('productos')->where('destacado','=','1')->get();
-        try {
-            $destacados->random(10);
-        }catch(Exception $exception){
-            $destacados;
-        }
-
-        return view('users.checkout', compact('destacados'));
+        //dd($inventarios);
+        return view('dashboard.productos.inventario', compact('inventarios'));
     }
 
     /**

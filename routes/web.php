@@ -42,6 +42,7 @@ Route::get('navbar/argollas/{kilataje}', [
             'as' => 'argollas',
             'uses' => 'navbarCrud@argollasIndex'
             ]); /* ok */
+Route::get('navbar/productos', 'navbarCrud@productosIndex')->name('productos');/* Ok */
 
 // Redirige vista principal de usuarios
 Route::resource('/','indexController');
@@ -66,7 +67,8 @@ Route::get('empty', function(){
 });
 
 // Recursos para el checkout
-Route::get('/checkout', 'CheckoutController@index')->name('checkout.index');
+Route::get('/checkout/{id}', 'CheckoutController@index')->name('checkout.index');
+Route::get('/checkout_guess', 'CheckoutController@index_guess')->name('checkout_guess.index');
 
 // Recursos para Account
 Route::get('/account', 'accountController@index')->name('account.index');
@@ -76,6 +78,10 @@ Route::put('/account/updateAddress/{id}', 'accountController@updateAddress')->na
 Route::get('/account/shopping', 'accountController@shopping')->name('account.shopping');
 Route::get('/account/detail', 'accountController@detail')->name('account.detail');
 
+// Usuarios panel
+Route::get('/panel/user', 'usersCrud@index')->name('users_panel');
+Route::get('/panel/inventario', 'enviosCrud@index_inventario')->name('inventario_panel');
+Route::get('/panel/envio', 'enviosCrud@index_envio')->name('envio_panel');
 
 // Recursos para busqueda
 Route::get('search', 'searchController@search')->name('search');
