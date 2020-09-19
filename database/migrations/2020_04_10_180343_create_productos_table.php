@@ -21,6 +21,8 @@ class CreateProductosTable extends Migration
             $table->string('RFC');
             $table->string('material');
             $table->string('Foto');
+            $table->string('fotovista1');
+            $table->string('fotovista2');
             $table->string('fotograbado')->default(0);
             $table->integer('descuento')->default(0);
             $table->boolean('activo')->default(1);

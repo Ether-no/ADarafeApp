@@ -18,7 +18,7 @@
         <link rel="stylesheet" href="{{asset('carousel/assets/owl.carousel.min.css') }}">
         <link rel="stylesheet" href="{{asset('carousel/assets/owl.theme.default.css') }}">
         <script src="https://secure.mlstatic.com/sdk/javascript/v1/mercadopago.js"></script>
-        <script src="{{ asset('js/carproducto.js') }}"></script>
+        <script src="{{ asset('js/carrito.js') }}"></script>
         <script src="https://kit.fontawesome.com/f7e5c22dfe.js" crossorigin="anonymous"></script>
         <style>
             .owl-carousel .owl-nav button.owl-prev {

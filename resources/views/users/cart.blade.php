@@ -46,6 +46,7 @@
                         <th class="col m3 s3">Producto</th>
                         <th class="col m3 s3">Descripción</th>
                         <th class="col m3 s3">Cantidad</th>
+                        <th class="col m3 s3">Grabado</th>
                         <th class="col m3 s3">Total</th>
                     </tr>
                 </thead>
@@ -75,14 +76,33 @@
                                     </button>
                                 </form>
                              </td>
-                             <td class="col m3 s3 margin-cart-top">{{ $item->total }}
+                             <td class="col m3 s3 margin-cart-top">
+                                @if ($item->grabado)
+                                    {{-- <a class="waves-effect waves-light btn modal-trigger" href="#modal1" onclick="grab({{ $item->idcar }})">Modal</a>    --}}
+                                    <form action="{{ route('registra.guardarGN', $item->idcar) }}" method="POST">
+                                        {{ csrf_field() }}
+                                        <button type="submit" class="waves-effect waves-light btn modal-trigger">
+                                            Grabar
+                                        </button>
+                                    </form> 
+                                @endif
+                             </td>
+                                
+                             <td class="col m3 s3 margin-cart-top">{{ $item->total }}</td>
                         </tr>
                     @endforeach
                 </tbody>
         </div>
         </table>
     </div>
+    <!-- Modal Trigger -->
+  
 
+  <!-- Modal Structure -->
+  <div id="modal1" class="modal">
+    
+  </div>
+          
     <div class="row">
         <div class="col s12 m3">
             <h4 class="font-h">Total a pagar</h4>

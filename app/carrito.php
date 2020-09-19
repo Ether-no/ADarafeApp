@@ -10,4 +10,9 @@ class carrito extends Model
     protected $primaryKey = 'idcar';
     protected $fillable = ['idcar','activo','comprado','grabado','cantidad','foto','descripcion','preciounitario','total','id','id_productos'];
     protected $dates = ['created_at', 'updated_at'];
+
+    public function contador(){
+        return $this->HasMany(carritosgrabado::class);
+    }
+
 }

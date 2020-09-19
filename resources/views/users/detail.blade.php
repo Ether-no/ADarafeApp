@@ -37,10 +37,9 @@
 
             <div class="row">
                 {{-- Falta arreglar dettalles fotos --}}
-                <div class="col s3"><img class="responsive-img z-depth-1" src="{{asset('img/argollas/A14-R103484.png')}}" alt=""></div>
-                <div class="col s3"><img class="responsive-img z-depth-1" src="{{asset('img/argollas/A14-R103484.png')}}" alt=""></div>
-                <div class="col s3"><img class="responsive-img z-depth-1" src="{{asset('img/argollas/A14-R103484.png')}}" alt=""></div>
-                <div class="col s3"><img class="responsive-img z-depth-1" src="{{asset('img/argollas/A14-R103484.png')}}" alt=""></div>
+                <div class="col s3"><img class="responsive-img z-depth-1" src="{{asset($detalles->fotovista1)}}" alt=""></div>
+                <div class="col s3"><img class="responsive-img z-depth-1" src="{{asset($detalles->fotovista2)}}" alt=""></div>
+                <div class="col s3"><img class="responsive-img z-depth-1" src="{{asset($detalles->Foto)}}" alt=""></div>
             </div>
         </div>
 

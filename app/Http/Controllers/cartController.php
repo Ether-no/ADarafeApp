@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 use App\producto;
 use App\carrito;
+use App\carritosgrabado;
 use Exception;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
@@ -35,6 +36,7 @@ class CartController extends Controller
             // foreach($usercart as $item){
             //     $idcarrito = DB::table('productos')->where('id_productos', '=',$item->id_productos)->get();
             // }
+           // $cargrabado = DB::table('carritograbados')->where([['activo', '=',1],['id', '=', $userlog]])->get();
             return view('users.cart', compact('mightAlsoLike', 'destacados','idcarrito'));
         }else{
             return view('users.cartnolog', compact('mightAlsoLike', 'destacados'));
@@ -44,6 +46,16 @@ class CartController extends Controller
     }
     public function pcart($idp){
         return producto::where('id_producto', '=' , $idp)->get();
+    }
+    public function grabado($idc){
+        return carritosgrabado::where('idcar', '=' , $idc)->get();
+    }
+    public function idcarrito($idc){
+        return carrito::where('idcar', '=' , $idc)->get();
+    }
+    public function RegistroGN(Request $request, $id){
+        $carrito = carritosgrabado::where('idcar','=',$id)->get();
+        return view('users.grabadonumero',compact('carrito'));
     }
     /**
      * Show the form for creating a new resource.
@@ -74,7 +86,7 @@ class CartController extends Controller
                 $userlog = auth()->user()->id;
                 $prod = DB::table('productos')->where('id_productos','=',$request->id_productos)->get();
                 $prod = producto::find($request->id_productos);
-                $carrito = carrito::create([
+                carrito::create([
                         'activo' => '1',
                         'comprado' => '0',
                         'cantidad' => '1',
@@ -86,6 +98,20 @@ class CartController extends Controller
                         'total' => $request->precio,
                         'id' => $userlog
                 ]);
+                if($prod->grabado = 1){
+                    $cartfind = DB::table('carritos')->where([
+                        ['id_productos', '=',$request->id_productos],
+                        ['id', '=', $userlog]])->get();
+                    foreach($cartfind as $attrs){
+                        carritosgrabado::create([
+                            'grabado' => '',
+                            'numero' => 0,
+                            'idcar' => $attrs->idcar,
+                            'id_productos' => $attrs->id_productos
+                            
+                        ]);
+                    }
+                }
                 toast('¡El producto se a agregado a su carrito!','success');
             }
             
@@ -146,6 +172,10 @@ class CartController extends Controller
                 toast('¡Error la cantidad debe estar entre 1 y 5!','error');
                 return response()->json(['success' => false], 400);
             }
+           
+            
+            $totalcardetalle = "SELECT COUNT(idcar) FROM articles WHERE idcar = $id";
+            
             carrito::find($id)->update(['cantidad' => $request->quantity]);
             $totalcart = carrito::find($id);
             $total = $totalcart->cantidad * $totalcart->preciounitario;
@@ -154,7 +184,9 @@ class CartController extends Controller
             // $updatecart = carrito::update([
             //         'cantidad' => $request->cantidad,
             //         'total' => $total]);
-            toast('¡Cantidad actualizada exitosamente!','success');
+            dd($totalcardetalle);
+            // toast('¡Cantidad actualizada exitosamente!','success');
+            
             return response()->json(['success' => true]);
         }else{
             $validator = Validator::make($request->all(), [

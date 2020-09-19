@@ -41,7 +41,7 @@ class indexController extends Controller
     public function index()
     {
         //
-        $productosdescuento = DB::table('productos')->where('descuento','!=','""')->get();
+        $productosdescuento = DB::table('productos')->where('descuento','!=',0)->get();
         try {
             $productosdescuento->random(10);
         }catch(Exception $exception){

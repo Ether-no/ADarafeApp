@@ -10,7 +10,7 @@ class producto extends Model
 {
     use Taggable;
 	protected $primaryKey = 'id_productos';
-    protected $fillable=['id_productos','producto','descripcion','kilataje','agrandar','RFC','destacado','grabado','fotograbado','Foto','precio','peso','material','id_cat','numerominimo','numeromaximo','id_subcategoria'];
+    protected $fillable=['id_productos','producto','descripcion','kilataje','agrandar','RFC','destacado','grabado','fotograbado','Foto','fotovista1','fotovista2','precio','peso','material','id_cat','numerominimo','numeromaximo','id_subcategoria'];
 
     // public function selectcategoria(){
     // return $this>belongsTo('App\categoria','id_cat');

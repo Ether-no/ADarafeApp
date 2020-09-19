@@ -194,6 +194,20 @@
             <small class="form-text text-danger">{{ $errors->first('Foto') }}</small>
             @endif
         </div>
+        <div>
+            <label>Foto Vista 1</label><br>
+            <input type="file" name="fotovista1" id="fotovista1">
+            @if ($errors->has('fotovista1'))
+            <small class="form-text text-danger">{{ $errors->first('fotovista1') }}</small>
+            @endif
+        </div>
+        <div>
+            <label>Foto Vista 2</label><br>
+            <input type="file" name="fotovista2" id="fotovista2">
+            @if ($errors->has('fotovista2'))
+            <small class="form-text text-danger">{{ $errors->first('fotovista2') }}</small>
+            @endif
+        </div>
 
 		<div class="center">
 			<input type="submit" class="waves-effect waves-light btn white-text" value="Registrar Producto">

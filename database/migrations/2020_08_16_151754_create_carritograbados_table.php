@@ -16,6 +16,7 @@ class CreateCarritograbadosTable extends Migration
         Schema::create('carritograbados', function (Blueprint $table) {
             $table->bigIncrements('idcartgrabado');
             $table->string('grabado');
+            $table->integer('numero')->default(0);
             $table->unsignedBigInteger('id_productos');
             $table->foreign('id_productos')->references('id_productos')->on('productos');
             $table->unsignedBigInteger('idcar');

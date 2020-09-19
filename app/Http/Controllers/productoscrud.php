@@ -63,6 +63,12 @@ class productoscrud extends Controller
         if($request->hasFile('Foto')){
             $datosproducto['Foto']=$request->file('Foto')->store('uploads','public');
         }
+        if($request->hasFile('fotovista1')){
+            $datosproducto['fotovista1']=$request->file('fotovista1')->store('uploads','public');
+        }
+        if($request->hasFile('fotovista2')){
+            $datosproducto['fotovista2']=$request->file('fotovista2')->store('uploads','public');
+        }
         if($request->hasFile('fotograbado')){
             $datosproducto['fotograbado']=$request->file('fotograbado')->store('uploads','public');
         }
@@ -149,6 +155,16 @@ class productoscrud extends Controller
             unlink($productos->Foto);
             $datosproducto['fotograbado']=$request->file('fotograbado')->store('uploads','public');
         }
+        if($request->hasFile('fotovista1')){
+            $productos = producto::findOrFail($id);
+            unlink($productos->Foto);
+            $datosproducto['fotovista1']=$request->file('fotovista1')->store('uploads','public');
+        }
+        if($request->hasFile('fotovista2')){
+            $productos = producto::findOrFail($id);
+            unlink($productos->Foto);
+            $datosproducto['fotovista2']=$request->file('fotovista2')->store('uploads','public');
+        }
         producto::where('id_productos', "=" , $id)->update($datosproducto);
         $productos = producto::findOrFail($id);
         alert()->success('¡Producto actualizado!','');
@@ -168,7 +184,8 @@ class productoscrud extends Controller
         //         producto::destroy($id);
         //    }
         // holaaa  dois intento return redirect()->action('productoscrud@create');
-
+        $tags = tagproducto::where('id_productos', "=" , $id);
+        $tags->delete();
         $producto = producto::find($id);
         $producto->delete();
         /* Envia mensaje */

@@ -17,4 +17,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 Route::get('/productos/{id}/create','indexController@vcat');
-Route::get('/cart/{id}','cartController@pcart');
+//Route::get('/cart/{id}','cartController@pcart');
+Route::get('/{id}/cart','cartController@grabado');
+Route::get('/{id}/cartt','cartController@idcarrito');

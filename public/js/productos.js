@@ -1,6 +1,7 @@
 $(function(){
     $('#select-categoria').on('change',onSelectCat);
    });
+
 // $(function(){
 //     $('#radioagrandarvalue1').on('change',OnAgrandar);
 //    });
