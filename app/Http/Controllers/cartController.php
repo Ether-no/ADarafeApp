@@ -23,7 +23,6 @@ class CartController extends Controller
     public function index()
     {
         $mightAlsoLike = producto::mightAlsoLike()->get();
-
         $destacados =  DB::table('productos')->where('destacado','=','1')->get();
         try {
             $destacados->random(10);
@@ -54,8 +53,11 @@ class CartController extends Controller
         return carrito::where('idcar', '=' , $idc)->get();
     }
     public function RegistroGN(Request $request, $id){
+        $cart= carrito::where('idcar', '=', $id)->get();
         $carrito = carritosgrabado::where('idcar','=',$id)->get();
-        return view('users.grabadonumero',compact('carrito'));
+        return view('users.grabadonumero',compact('carrito','cart'));
+
+        /* dd($cart); */
     }
     /**
      * Show the form for creating a new resource.

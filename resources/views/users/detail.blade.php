@@ -122,6 +122,15 @@
             </div>
             <div class="card-action">
                 <h5 class="center">$ {{number_format($destacado->precio, 2, '.',',')}}</h5>
+
+                <div class="row center">
+                    <div class="col s12 m12 l12 button-card-products">
+                        <a class="btn-small waves-effect waves-light modal-trigger" href="#modal1">Info</a>
+                    </div>
+                    <div class="col s12 m12 l12 button-card-products">
+                        <a class="btn-small waves-effect" href="#"n name="Mi carrito">Agregar</a>
+                    </div>
+                </div>
             </div>
         </div>
         @endforeach

@@ -50,17 +50,17 @@
                 {{-- Se muestran cuando esta en pantalla completa --}}
                 <div class="card-action center">
                     <div class="row">
-                        <div class="col s12 m6 button-card-products">
+                        <div class="col s12 m12 l12 button-card-products">
                             <a class="btn-small waves-effect waves-light modal-trigger" href="{{ route('detalle', $kilate->id_productos) }}">Info</a>
-                        </div>
-                        <div class="col s12 m5">
+                        </div><br><br>
+                        <div class="col s12 m12 l12">
                             <div class="">
                                 <form action="{{ route('cart.store') }}" method="POST">
                                     {{ csrf_field() }}
                                     <input type="hidden" name="id_productos" value="{{ $kilate->id_productos }}">
                                     <input type="hidden" name="producto" value="{{ $kilate->producto }}">
                                     <input type="hidden" name="precio" value="{{ $kilate->precio }}">
-                                    <button type="submit" class="waves-effect waves-light btn-small">Agregar al carrito</button>
+                                    <button type="submit" class="waves-effect waves-light btn-small">Agregar</button>
                                 </form>
                             </div>
                         </div>

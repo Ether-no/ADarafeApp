@@ -186,6 +186,16 @@
                 <img src="{{asset('img/darafe.png')}}" class="font-head-sidebar" alt=""></a>
             </li>
 
+            <center>
+                <li>
+                    <a class="black-text" href="{{ route('cart.index') }}">Carrito
+                        @if (Cart::instance('default')->count() > 0)
+                        <span class="cart-count">{{ Cart::instance('default')->count() }}</span>
+                        @endif
+                    </a>
+                </li>
+            </center>
+
             <li>
                 <div class="divider"></div>
             </li>

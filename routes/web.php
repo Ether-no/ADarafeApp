@@ -107,5 +107,6 @@ Route::resource('/descuentos','DescuentosCrud');
 Route::post('/detallecarro/{id}','carritograbado@update');
 //prueba mercado pago
 Route::get('/prueba','MercadoPago@recibeProductos');
+// 
 Route::post('/registraGN/{idcar}','cartController@RegistroGN')->name('registra.guardarGN');;
 //Route::resource('GNcarrito/{id}','carritograbado@update');

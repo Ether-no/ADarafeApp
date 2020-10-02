@@ -17,6 +17,10 @@ class CreateCarritograbadosTable extends Migration
             $table->bigIncrements('idcartgrabado');
             $table->string('grabado');
             $table->integer('numero')->default(0);
+            /* Pasar a Null */
+            $table->string('grabado2');
+            $table->integer('numero2')->default(0);
+            /* Pasar a update y delete on cascade */
             $table->unsignedBigInteger('id_productos');
             $table->foreign('id_productos')->references('id_productos')->on('productos');
             $table->unsignedBigInteger('idcar');

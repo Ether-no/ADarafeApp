@@ -51,10 +51,10 @@
                 {{-- Se muestran cuando esta en pantalla completa --}}
                 <div class="card-action center">
                     <div class="row">
-                        <div class="col s12 m6 button-card-products">
+                        <div class="col s12 m12 l12 button-card-products">
                             <a class="btn-small waves-effect waves-light modal-trigger" href="{{ route('detalle', $caballero->id_productos) }}">Info</a>
                         </div>
-                        <div class="col s12 m5">
+                        <div class="col s12 m12 l12">
                             <div class="">
                                 <form action="{{ route('cart.store') }}" method="POST">
                                     {{ csrf_field() }}

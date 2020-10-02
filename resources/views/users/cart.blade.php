@@ -31,7 +31,8 @@
 <div class="container">
     <div class="row">
         <div class="col s12 m6">
-            <h5>{{ Cart::count() }} Producto(s) agregado(s)</h5>
+            <!-- Activar cuando el carrito este operativo al 100% -->
+            <!-- <h5>{{ Cart::count() }} Producto(s) agregado(s)</h5> -->
         </div>
         <div class="col s12 m6">
             <a href="{{ route('index') }}" class="waves-effect waves-light btn-small right">¡Continuar comprando!</a>
@@ -42,53 +43,78 @@
         <div class="col s12 m9">
             <table>
                 <thead>
-                    <tr>
-                        <th class="col m3 s3">Producto</th>
-                        <th class="col m3 s3">Descripción</th>
-                        <th class="col m3 s3">Cantidad</th>
-                        <th class="col m3 s3">Grabado</th>
-                        <th class="col m3 s3">Total</th>
-                    </tr>
+                    <div>
+                        <tr>
+                            <th class="center">Producto</th>
+                            <th class="center">Descripción</th>
+                            <th class="center">Cantidad & Acciones</th>
+                            <th class="center">Total</th>
+                        </tr>                    
+                    </div>
+
                 </thead>
                 <tbody>
 
                     @foreach ($idcarrito as $item)
-                        <tr>
-                            <td class="col m3 s3 margin-cart"><a href="{{ route('detalle', $item->id_productos) }}">
-                                <img class="responsive-img" src="{{ asset($item->foto)}}" alt=""></a>
-                            </td>
-                            <td class="col m3 s3 margin-cart">
-                                 <p>{{Str::limit($item->descripcion, 26)}}</p>
-                            </td>
-                            <td class="col m3 s3 margin-cart">
-                                <div class="input-field col s12 m6">
-                                    <select class="quantity" data-id="{{ $item->idcar }}">
-                                        @for ($i = 1; $i < 5 ; $i++)
-                                            <option {{ $item->cantidad == $i ? 'selected' : '' }}>{{ $i }}</option>
-                                        @endfor
-                                    </select>
+                    <tr>
+
+
+                            <td class="margin-cart center"><a href="{{ route('detalle', $item->id_productos) }}">
+                                <img class="responsive-img" width="50%" height="50%" src="{{ asset($item->foto)}}" alt=""></a>
+                            </td>       
+
+
+                            <td class="margin-cart center">
+                                 <p>{{Str::limit($item->descripcion, 20)}}</p>
+                            </td>                 
+
+
+
+                            <td class="margin-cart center">
+
+                                <div class="row">
+                                    <div class=" s12 m12 l12">
+                                        <div class="input-field">
+                                            <select class="quantity" data-id="{{ $item->idcar }}">
+                                                @for ($i = 1; $i < 5 ; $i++)
+                                                    <option {{ $item->cantidad == $i ? 'selected' : '' }}>{{ $i }}</option>
+                                                @endfor
+                                            </select>
+                                        </div>                                
+                                    </div>
+                                    <div class=" s12 m12 l12">
+                                        <div class="left">
+                                            <form action="{{ route('cart.destroy', $item->id_productos) }}" method="POST">
+                                                {{ csrf_field() }}
+                                                {{ method_field('DELETE') }}
+                                                <button type="submit" class="waves-effect waves-light btn-small red right">
+                                                    <i class="fas fa-trash-alt"></i>
+                                                </button>
+                                            </form>                                
+                                        </div>                                    
+                                    </div>
+                                    <div class="s12 m12 l12">
+                                        <div class="right">
+                                        @if ($item->grabado)
+                                            {{-- <a class="waves-effect waves-light btn modal-trigger" href="#modal1" onclick="grab({{ $item->idcar }})">Modal</a>    --}}
+                                            <form action="{{ route('registra.guardarGN', $item->idcar) }}" method="POST">
+                                                {{ csrf_field() }}
+                                                <button type="submit" class="waves-effect waves-light btn modal-trigger">
+                                                    Grabar
+                                                </button>
+                                            </form> 
+                                        @endif                            
+                                        </div>                                    
+                                    </div>
                                 </div>
-                                <form action="{{ route('cart.destroy', $item->id_productos) }}" method="POST">
-                                    {{ csrf_field() }}
-                                    {{ method_field('DELETE') }}
-                                    <button type="submit" class="waves-effect waves-light btn-small margin-trash red right">
-                                        <i class="fas fa-trash-alt"></i>
-                                    </button>
-                                </form>
-                             </td>
-                             <td class="col m3 s3 margin-cart-top">
-                                @if ($item->grabado)
-                                    {{-- <a class="waves-effect waves-light btn modal-trigger" href="#modal1" onclick="grab({{ $item->idcar }})">Modal</a>    --}}
-                                    <form action="{{ route('registra.guardarGN', $item->idcar) }}" method="POST">
-                                        {{ csrf_field() }}
-                                        <button type="submit" class="waves-effect waves-light btn modal-trigger">
-                                            Grabar
-                                        </button>
-                                    </form> 
-                                @endif
-                             </td>
-                                
-                             <td class="col m3 s3 margin-cart-top">{{ $item->total }}</td>
+                            </td>
+
+                             <td class="margin-cart center">$ {{ number_format($item->total, 2,'.', ',') }}</td>  
+                             
+                    </div>
+
+
+
                         </tr>
                     @endforeach
                 </tbody>
@@ -125,13 +151,13 @@
         </div>
     </div>
 
-
-    <div class="container">
+<!-- Activar cuando el carrito de compras este operativo al 100% -->
+<!--     <div class="container">
         <h5>¡No hay productos en el carrito!</h5>
         <center><br><br>
             <a href="{{ route('index') }}" class="waves-effect waves-light btn-large col s12 m12">¡Continuar comprando!</a>
         </center><br><br>
-    </div>
+    </div> -->
 
 
 </div>
@@ -163,10 +189,10 @@
             {{-- Se muestran cuando esta en pantalla completa --}}
             <div class="card-action center">
                 <div class="row">
-                    <div class="col s12 m6 button-card-products">
+                    <div class="col s12 m12 l12 button-card-products">
                         <a class="btn-small waves-effect waves-light modal-trigger" href="#modal1">Info</a>
                     </div>
-                    <div class="col s12 m6 button-card-products">
+                    <div class="col s12 m12 l12 button-card-products">
                         <a class="btn-small waves-effect" href="#"n name="Mi carrito">Agregar</a>
                     </div>
                 </div>

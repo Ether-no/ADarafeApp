@@ -53,10 +53,10 @@
                 {{-- Se muestran cuando esta en pantalla completa --}}
                 <div class="card-action center">
                     <div class="row">
-                        <div class="col s12 m6 button-card-products">
+                        <div class="col s12 m12 l12 button-card-products">
                             <a class="btn-small waves-effect waves-light modal-trigger" href="{{ route('detalle', $prods->id_productos) }}">Info</a>
                         </div>
-                        <div class="col s12 m6 button-card-products">
+                        <div class="col s12 m12 l12 button-card-products">
                             <form action="{{ route('cart.store') }}" method="POST">
                                 {{ csrf_field() }}
                                 <input type="hidden" name="id_productos" value="{{ $prods->id_productos }}">
@@ -96,10 +96,10 @@
                 {{-- Se muestran cuando esta en pantalla completa --}}
                 <div class="card-action center">
                     <div class="row">
-                        <div class="col s12 m6 button-card-products">
+                        <div class="col s12 m12 l12 button-card-products">
                             <a class="btn-small waves-effect waves-light modal-trigger" href="{{ route('detalle', $prods->id_productos) }}">Info</a>
                         </div>
-                        <div class="col s12 m6 button-card-products">
+                        <div class="col s12 m12 l12 button-card-products">
                             <form action="{{ route('cart.store') }}" method="POST">
                                 {{ csrf_field() }}
                                 <input type="hidden" name="id_productos" value="{{ $prods->id_productos }}">
@@ -136,6 +136,15 @@
                 </div>
                 <div class="card-action">
                     <h5 class="center">$ {{number_format($dama->precio, 2, '.', ',')}}</h5>
+
+                    <div class="row center">
+                        <div class="col s12 m12 l12 button-card-products">
+                            <a class="btn-small waves-effect waves-light modal-trigger" href="#modal1">Info</a>
+                        </div>
+                        <div class="col s12 m12 l12 button-card-products">
+                            <a class="btn-small waves-effect" href="#"n name="Mi carrito">Agregar</a>
+                        </div>
+                    </div>
                 </div>
             </div>
             @endforeach
@@ -159,6 +168,15 @@
                 </div>
                 <div class="card-action">
                     <h5 class="center">$ {{number_format($caballero->precio, 2, '.', ',')}}</h5>
+
+                    <div class="row center">
+                        <div class="col s12 m12 l12 button-card-products">
+                            <a class="btn-small waves-effect waves-light modal-trigger" href="#modal1">Info</a>
+                        </div>
+                        <div class="col s12 m12 l12 button-card-products">
+                            <a class="btn-small waves-effect" href="#"n name="Mi carrito">Agregar</a>
+                        </div>
+                    </div>
                 </div>
             </div>
             @endforeach<br>
