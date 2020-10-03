@@ -11,8 +11,8 @@ class carrito extends Model
     protected $fillable = ['idcar','activo','comprado','grabado','cantidad','foto','descripcion','preciounitario','total','id','id_productos'];
     protected $dates = ['created_at', 'updated_at'];
 
-    public function contador(){
-        return $this->HasMany(carritosgrabado::class);
+    public function uscar(){
+        return $this->belongsTo('App\User');
     }
 
 }

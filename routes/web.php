@@ -107,6 +107,13 @@ Route::resource('/descuentos','DescuentosCrud');
 Route::post('/detallecarro/{id}','carritograbado@update');
 //prueba mercado pago
 Route::get('/prueba','MercadoPago@recibeProductos');
-// 
-Route::post('/registraGN/{idcar}','cartController@RegistroGN')->name('registra.guardarGN');;
+
+Route::post('/registraGN/{idcar}','cartController@RegistroGN')->name('registra.guardarGN');
+
 //Route::resource('GNcarrito/{id}','carritograbado@update');
+//Route::resource('/pagar','CheckoutController@store');
+Route::post('/payments/pay', 'PaymentController@pay')->name('pay');
+Route::get('/payments/approval', 'PaymentController@approval')->name('approval');
+Route::get('/payments/cancelled', 'PaymentController@cancelled')->name('cancelled');
+
+//Route::post('/pagar','CheckoutController');

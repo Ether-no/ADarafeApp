@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 use App\producto;
+use App\User;
 use App\carrito;
 use App\carritosgrabado;
 use Exception;
@@ -31,17 +32,19 @@ class CartController extends Controller
         }
         if (auth()->user()){
             $userlog = auth()->user()->id;
-            $idcarrito = DB::table('carritos')->where([['activo', '=',1],['id', '=', $userlog]])->get();
-            // foreach($usercart as $item){
-            //     $idcarrito = DB::table('productos')->where('id_productos', '=',$item->id_productos)->get();
-            // }
-           // $cargrabado = DB::table('carritograbados')->where([['activo', '=',1],['id', '=', $userlog]])->get();
-            return view('users.cart', compact('mightAlsoLike', 'destacados','idcarrito'));
+            $idcarrito = DB::table('carritos')
+                ->where([['activo', '=',1],['id', '=', $userlog]])
+                ->get();
+
+            $cart=DB::table('carritos')
+                ->join('users', 'users.id', '=', 'carritos.id')
+                ->select(DB::raw('SUM(carritos.total) as Total'))
+                ->where('carritos.id','=', $userlog)
+                ->get();
+          return view('users.cart', compact('mightAlsoLike', 'destacados','idcarrito','totalcarrito','cart'));
         }else{
             return view('users.cartnolog', compact('mightAlsoLike', 'destacados'));
-        }
-        
-        
+        }  
     }
     public function pcart($idp){
         return producto::where('id_producto', '=' , $idp)->get();

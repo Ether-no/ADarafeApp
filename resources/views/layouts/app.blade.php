@@ -12,14 +12,15 @@
 
         {{-- <link rel="stylesheet" type="text/css" href="{{asset('materialize/css/materialize.css') }}"> --}}
         <link rel="stylesheet" type="text/css" href="{{asset('css/materialize.css') }}">
-
+        <meta name="csrf-token" content="{{ csrf_token() }}">
         <link rel="stylesheet" type="text/css" href="{{asset('css/helpers.css') }}">
-
+        <script src="https://js.stripe.com/v3/"></script>
         <link rel="stylesheet" href="{{asset('carousel/assets/owl.carousel.min.css') }}">
         <link rel="stylesheet" href="{{asset('carousel/assets/owl.theme.default.css') }}">
         <script src="https://secure.mlstatic.com/sdk/javascript/v1/mercadopago.js"></script>
         <script src="{{ asset('js/carrito.js') }}"></script>
         <script src="https://kit.fontawesome.com/f7e5c22dfe.js" crossorigin="anonymous"></script>
+        
         <style>
             .owl-carousel .owl-nav button.owl-prev {
                 color: rgb(0, 0, 0);
@@ -105,11 +106,14 @@
             integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
             crossorigin="anonymous"></script>
         <script src="{{asset('js/scripts.js') }}"></script>
+        <script src="https://js.stripe.com/v3/"></script>
         <script src="{{asset('carousel/jquery.min.js') }}"></script>
         <script src="{{asset('carousel/owl.carousel.min.js') }}"></script>
         <script type="text/javascript" src="{{asset('js/materialize.js') }}"></script>
         <script src="{{asset('js/darafe.js') }}"></script>
+        
         <!-- Finalizan Scripts -->
+
 
 
     </body>

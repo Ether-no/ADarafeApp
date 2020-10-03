@@ -20,7 +20,9 @@
     </div>
 </div><br>
 <!-- Finaliza breadcrumb indice de paginas -->
-
+@php
+$suma = 0;
+@endphp
 
 <!-- Inicia el container -->
 <div class="container">
@@ -140,7 +142,8 @@
                     <hr class="hr-color">
                     <p>Envio: <b>Gratis</b></p>
                     <hr class="hr-color"><br>
-                    <h6>Total: <b>${{ Cart::total() }}</b></h6><br>
+                    <h6>Total: <b>$ @foreach ($cart as $total){{$total->Total}}@endforeach
+                    </b></h6><br>
                     @if (auth()->user())
                     <a href="{{ route('checkout.index', ['id' => auth()->user()->id]) }}"class="waves-effect waves-light btn-small right col s12 m12">Checkout</a><br><br>
                     @else

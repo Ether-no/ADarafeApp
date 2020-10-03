@@ -1,3 +1,4 @@
+var idapppago;
 function grab(catid){
     $.get('/api/'+catid+'/cart/', function(data){
         console.log(data);
@@ -14,6 +15,50 @@ function grab(catid){
 function guardargrabado(){
     $.get('/api/'+catid+'/cartt/', function(datos){});
 }
-// $(function(){
-//     $('#select-categoria').on('change',onSelectCat);
-//    });
+function tipodepago(nombrepago){
+    console.log(nombrepago);
+    switch (nombrepago) {
+        case "PayPal":
+            document.getElementById("strippe").style.display = "none";
+            document.getElementById("paypal").style.display = "block";
+            idapppago = 1;
+          //Declaraciones ejecutadas cuando el resultado de expresión coincide con el valor1
+            break;
+        case "Stripe":
+            document.getElementById("paypal").style.display = "none";
+            document.getElementById("strippe").style.display = "block";
+            idapppago = 2;
+          //Declaraciones ejecutadas cuando el resultado de expresión coincide con el valor2
+          break;
+        default:
+            console.log("No esta en la lista");
+          //Declaraciones ejecutadas cuando ninguno de los valores coincide con el valor de la expresión
+          break;
+      }
+}
+function valuarstripe(){
+var cardholderName = document.getElementById('cardholder-name').value;
+var cardholderEmail = document.getElementById('cardholder-email').value;
+var cardButton = document.getElementById('payButton');
+var resultContainer = document.getElementById('card-result');
+var idpay =document.getElementById('paymentMethod');
+  stripe.createPaymentMethod({
+      type: 'card',
+      card: cardElement,
+      billing_details: {
+        email: cardholderEmail,
+        name: cardholderName,
+      },
+    }
+  ).then(function(result) {
+ 
+    if (result.error) {
+      // Display error.message in your UI
+      resultContainer.textContent = result.error.message;
+    } else {
+        idpay.textContent = "Created payment method: " + result.paymentMethod.id;
+        console.log("regreso");
+    }
+  });
+
+}

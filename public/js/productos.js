@@ -1,6 +1,6 @@
 $(function(){
     $('#select-categoria').on('change',onSelectCat);
-   });
+});
 
 // $(function(){
 //     $('#radioagrandarvalue1').on('change',OnAgrandar);
@@ -43,7 +43,7 @@ function OnGrabar0(){
         
         $.get('/api/productos/'+catid+'/create', function(data){
             var html_selectsubcat = '<label  for="inputState">Sub Categoria</label><select name="id_subcategoria" id="selectcat"><option value="">Seleccione Subcategoria</option>';
-               
+      
             for(var i=0; i<data.length; ++i)
                 html_selectsubcat = html_selectsubcat + '<option value="'+data[i].id_subcategoria+'">'+data[i].nombre+'</option>';
               
