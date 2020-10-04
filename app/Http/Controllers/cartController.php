@@ -111,6 +111,8 @@ class CartController extends Controller
                         carritosgrabado::create([
                             'grabado' => '',
                             'numero' => 0,
+                            'grabado2' => '',
+                            'numero2' => 0,
                             'idcar' => $attrs->idcar,
                             'id_productos' => $attrs->id_productos
                             
