@@ -92,16 +92,16 @@ class CartController extends Controller
                 $prod = DB::table('productos')->where('id_productos','=',$request->id_productos)->get();
                 $prod = producto::find($request->id_productos);
                 carrito::create([
-                        'activo' => '1',
-                        'comprado' => '0',
-                        'cantidad' => '1',
-                        'foto' => $prod->Foto,
-                        'grabado' => $prod->grabado,
-                        'descripcion' => $prod->descripcion,
-                        'preciounitario' => $request->precio,
-                        'id_productos' => $request->id_productos,
-                        'total' => $request->precio,
-                        'id' => $userlog
+                    'activo' => '1',
+                    'comprado' => '0',
+                    'cantidad' => '1',
+                    'foto' => $prod->Foto,
+                    'grabado' => $prod->grabado,
+                    'descripcion' => $prod->descripcion,
+                    'preciounitario' => $request->precio,
+                    'id_productos' => $request->id_productos,
+                    'total' => $request->precio,
+                    'id' => $userlog
                 ]);
                 if($prod->grabado = 1){
                     $cartfind = DB::table('carritos')->where([
@@ -115,7 +115,6 @@ class CartController extends Controller
                             'numero2' => 0,
                             'idcar' => $attrs->idcar,
                             'id_productos' => $attrs->id_productos
-                            
                         ]);
                     }
                 }
@@ -242,6 +241,14 @@ class CartController extends Controller
         $idcarrito = DB::table('carritos')->select('idcar')->where([
             ['id_productos', '=', $id],
             ['id', '=', $userlog]])->get();
+        $carritograb = DB::table('carritograbados')->select('idcartgrabado')->where('id_productos', '=', $id)->get();
+     
+        foreach($carritograb as $attrs){
+            $car = $attrs->idcartgrabado;
+            $elimncar = carritosgrabado::find($car);
+            $elimncar->delete();
+        }
+        $elimncar->delete();
         foreach($idcarrito as $attrs){
             $car = $attrs->idcar;
             $elimncar = carrito::find($car);
