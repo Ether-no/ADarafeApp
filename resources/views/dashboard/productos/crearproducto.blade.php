@@ -98,6 +98,13 @@
 		</div>
 
 		<div id="id_subcat">
+            <select name="id_subcategoria" id="select-categoria">
+                <option value=""></option>
+                    @foreach ($subcategorias ?? '' as  $scategoria)
+                        <option value="{{$scategoria->id_subcategoria}}"> {{$scategoria->nombre}} </option>
+                    @endforeach
+            </select>
+
                 @if ($errors->has('id_subcategoria'))
                 <small class="form-text text-danger">{{ $errors->first('id_subcategoria') }}</small>
                 @endif

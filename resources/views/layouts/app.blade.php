@@ -111,7 +111,7 @@
         <script src="{{asset('carousel/owl.carousel.min.js') }}"></script>
         <script type="text/javascript" src="{{asset('js/materialize.js') }}"></script>
         <script src="{{asset('js/darafe.js') }}"></script>
-        
+        <script src="https://secure.mlstatic.com/sdk/javascript/v1/mercadopago.js"></script>
         <!-- Finalizan Scripts -->
 
 

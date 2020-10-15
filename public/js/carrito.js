@@ -20,14 +20,23 @@ function tipodepago(nombrepago){
     switch (nombrepago) {
         case "PayPal":
             document.getElementById("strippe").style.display = "none";
+            document.getElementById("mercadopago").style.display = "none";
             document.getElementById("paypal").style.display = "block";
             idapppago = 1;
           //Declaraciones ejecutadas cuando el resultado de expresión coincide con el valor1
             break;
         case "Stripe":
             document.getElementById("paypal").style.display = "none";
-            document.getElementById("strippe").style.display = "block";
+            document.getElementById("mercadopago").style.display = "none";
+            document.getElementById("strippe").style.display = "none";
             idapppago = 2;
+          //Declaraciones ejecutadas cuando el resultado de expresión coincide con el valor2
+          break;
+        case "MercadoPago":
+          document.getElementById("paypal").style.display = "none";
+          document.getElementById("strippe").style.display = "none";
+          document.getElementById("mercadopago").style.display = "block";
+          idapppago = 3;
           //Declaraciones ejecutadas cuando el resultado de expresión coincide con el valor2
           break;
         default:

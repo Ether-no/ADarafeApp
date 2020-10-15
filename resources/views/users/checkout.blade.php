@@ -330,35 +330,51 @@
                                         @endforeach
                                     </div>
                                     <div id="strippe">
-                                        {{-- <div class="input-field">
-                                            <input id="name_card" type="text" class="validate">
-                                            <label for="name_card">Nombre del titular</label>
-                                        </div>
-                            
-                                        <div class="input-field" id="card-element">
-                                            <input id="number_card" type="text" class="validate">
-                                            <label for="number_card">Número de tarjeta</label>
-                                        </div> --}}
-                                        {{-- <label class="mt-3">Card details:</label>
-                                        <div id="cardElement"></div>
-                                        <small class="form-text text-muted" id="cardErrors" role="alert"></small>
-                                        <input type="hidden" name="payment_method" id="paymentMethod"> --}}
-                                        {{-- <input id="cardholder-name" type="text">
-                                        <!-- placeholder for Elements -->
-                                        <div id="card-element"></div>
-                                        <div id="card-result"></div>
-                                        <button id="card-button">Save Card</button> --}}
                                         <input id="cardholder-name" type="text" value="{{ auth()->user()->name }} {{ auth()->user()->apellidos }}">
                                         <input id="cardholder-email" type="text" value="{{ auth()->user()->email }}">
-                                        <!-- placeholder for Elements -->
                                         <div id="card-element"></div>
                                         <small class="form-text text-muted" id="card-result" role="alert"></small>
-                                        <input type="text" name="payment_method" id="paymentMethod">
-                                        {{-- <div id="card-result"> <input type="hidden" name="payment_method" id="paymentMethod"></div> --}}
-                                       
+                                        <input type="text" name="payment_method" id="paymentMethod">                                       
                                     </div>
                                     <div id="paypal" >
                                         <h3>Se direcionara a paypal</h3>
+                                    </div>
+                                    <div id="mercadopago">
+                                        <div id="mercadocard">
+                                            <label>Detalles:</label>
+                                            <div class="form-group form-row">
+                                                <div class="col-5">
+                                                    <input class="form-control" type="text" id="cardNumber" data-checkout="cardNumber" placeholder="Numero de tarjeta">
+                                                </div>
+                                            </div>
+
+                                            <div class="col-2">
+                                                <input class="form-control" type="text" data-checkout="securitycode" placeholder="CVC">
+                                            </div>
+                                            <div class="col-1"></div>
+                                            <div class="col-1">
+                                                <input class="form-control" type="text" data-checkout="cardExpirationMonth" placeholder="MM">
+                                            </div>
+                                            <div class="col-1">
+                                                <input class="form-control" type="text" data-checkout="cardExpirationYear" placeholder="YY">
+                                            </div>   
+                                        </div>
+                                        <div  class="form-group form-row">
+                                            <div class="col-5">
+                                                <input class="form-control" type="text" id="cardNumber" data-checkout="cardholderName" placeholder="Nombre">
+                                            </div>
+                                            <div class="col-5">
+                                                <input class="form-control" type="email" id="cardNumber" data-checkout="cardholderEmail" placeholder="email@example.com" name="email">
+                                            </div>
+                                        </div>
+                                        <div  class="form-group form-row">
+                                            <div class="col-2">
+                                                <select class="custom-select" data-checkout="docType" id="docType"></select>
+                                            </div>
+                                            <div class="col-3">
+                                                <input class="form-control" type="text" data-checkout="docNumber" placeholder="Documento">
+                                            </div>
+                                        </div>
                                     </div>
                                     {{-- @foreach ($payment as $paymentPlatform)
                                         <div
@@ -445,10 +461,16 @@
 
     </div>
 </div><br>
+
 <script>
     var stripe = Stripe('pk_test_51HWRvQIyQxyFVKbETOD6qdDS8TQQo0I7l7D71w5YEzKAqjMUvdizXqFIu5UR7ZZFPP5v9v5diyVizq60D9O6B69y00dveBmkwQ');
     var elements = stripe.elements();
     var cardElement = elements.create('card');
     cardElement.mount('#card-element');
+</script>
+<script>
+   var keymercado = window.Mercadopago.setPublishableKey("APP_USR-b9e05693-cdfb-4a2a-acb2-6edeff5c60f7");
+   keymercado = window.Mercadopago.getIdentificationTypes();
+
 </script>
 @endsection

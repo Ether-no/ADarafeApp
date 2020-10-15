@@ -9,7 +9,7 @@ use App\subcategoria;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 use Exception;
-
+use Illuminate\Support\Facades\Cookie;
 class indexController extends Controller
 {
 
@@ -80,8 +80,9 @@ class indexController extends Controller
             }catch(Exception $exception){
                 $caballeros;
             }
+            $cookie = Cookie::forget('myCookie');
         // return view ('dashboard/productos/crearproducto', compact('productos','categorias', 'subcategorias'));
-        return view ('users.index', compact('productosdescuento','productos', 'damas', 'caballeros'));
+        return view ('users.index', compact('productosdescuento','productos', 'damas', 'caballeros'))->withCookie($cookie);
     }
 
     /**

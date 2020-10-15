@@ -17,6 +17,9 @@
   #paypal{
     display: none;
 }
+#mercadopago{
+    display: none;
+}
 .StripeElement {
     box-sizing: border-box;
 
