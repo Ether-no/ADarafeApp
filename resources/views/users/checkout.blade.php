@@ -340,41 +340,43 @@
                                         <h3>Se direcionara a paypal</h3>
                                     </div>
                                     <div id="mercadopago">
-                                        <div id="mercadocard">
-                                            <label>Detalles:</label>
-                                            <div class="form-group form-row">
-                                                <div class="col-5">
-                                                    <input class="form-control" type="text" id="cardNumber" data-checkout="cardNumber" placeholder="Numero de tarjeta">
-                                                </div>
-                                            </div>
-
-                                            <div class="col-2">
-                                                <input class="form-control" type="text" data-checkout="securitycode" placeholder="CVC">
-                                            </div>
-                                            <div class="col-1"></div>
-                                            <div class="col-1">
-                                                <input class="form-control" type="text" data-checkout="cardExpirationMonth" placeholder="MM">
-                                            </div>
-                                            <div class="col-1">
-                                                <input class="form-control" type="text" data-checkout="cardExpirationYear" placeholder="YY">
-                                            </div>   
+                                        <div class="col-5">
+                                            <input class="form-control" type="text" id="cardNumber" data-checkout="cardNumber" placeholder="Card Number" onchange="setCardNetwork();">
                                         </div>
-                                        <div  class="form-group form-row">
+                                    
+                                        <div class="col-2">
+                                            <input class="form-control" type="text" data-checkout="securityCode" placeholder="CVC">
+                                        </div>
+                                    
+                                        <div class="col-1"></div>
+                                    
+                                        <div class="col-1">
+                                            <input class="form-control" type="text" data-checkout="cardExpirationMonth" placeholder="MM">
+                                        </div>
+                                    
+                                        <div class="col-1">
+                                            <input class="form-control" type="text" data-checkout="cardExpirationYear" placeholder="YY">
+                                        </div>
+                                        <div class="form-group form-row">
                                             <div class="col-5">
-                                                <input class="form-control" type="text" id="cardNumber" data-checkout="cardholderName" placeholder="Nombre">
+                                                <input class="form-control" type="text" data-checkout="cardholderName" placeholder="Your Name">
                                             </div>
                                             <div class="col-5">
-                                                <input class="form-control" type="email" id="cardNumber" data-checkout="cardholderEmail" placeholder="email@example.com" name="email">
+                                                <input class="form-control" type="email" data-checkout="cardholderEmail" placeholder="email@example.com" name="email">
                                             </div>
                                         </div>
-                                        <div  class="form-group form-row">
-                                            <div class="col-2">
-                                                <select class="custom-select" data-checkout="docType" id="docType"></select>
-                                            </div>
-                                            <div class="col-3">
-                                                <input class="form-control" type="text" data-checkout="docNumber" placeholder="Documento">
+                                        <div class="form-group form-row">
+                                            <div class="col">
+                                                <small class="form-text text-mute"  role="alert" >Your payment will be converted to {{ strtoupper(config('services.mercadopago.base_currency')) }}</small>
                                             </div>
                                         </div>
+                                        <div class="form-group form-row">
+                                            <div class="col">
+                                                <small class="form-text text-danger" id="paymentErrors" role="alert"></small>
+                                            </div>
+                                        </div>
+                                        <input type="hidden" id="cardNetwork" name="card_network">
+                                        <input type="hidden" id="cardToken" name="card_token">
                                     </div>
                                     {{-- @foreach ($payment as $paymentPlatform)
                                         <div
@@ -461,16 +463,13 @@
 
     </div>
 </div><br>
-
+@push('scripts')
 <script>
     var stripe = Stripe('pk_test_51HWRvQIyQxyFVKbETOD6qdDS8TQQo0I7l7D71w5YEzKAqjMUvdizXqFIu5UR7ZZFPP5v9v5diyVizq60D9O6B69y00dveBmkwQ');
     var elements = stripe.elements();
     var cardElement = elements.create('card');
     cardElement.mount('#card-element');
 </script>
-<script>
-   var keymercado = window.Mercadopago.setPublishableKey("APP_USR-b9e05693-cdfb-4a2a-acb2-6edeff5c60f7");
-   keymercado = window.Mercadopago.getIdentificationTypes();
 
-</script>
+@endpush
 @endsection

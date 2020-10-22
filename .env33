@@ -1,17 +1,17 @@
-APP_NAME=Laravel
-APP_ENV=local
+APP_NAME=Darafe
+APP_ENV=production
 APP_KEY=base64:O52nRf1M3fKvUn8hBs00o2lD0LrpfwpcfRahiunirkQ=
-APP_DEBUG=true
-APP_URL=http://127.0.0.1:8000
+APP_DEBUG=false
+APP_URL=http://darafe.com
 
 LOG_CHANNEL=stack
 
-DB_CONNECTION=mysql
-DB_HOST=127.0.0.1
+DB_CONNECTIO
+DB_HOST=mysql.darafe.com
 DB_PORT=3306
-DB_DATABASE=darafe
-DB_USERNAME=root
-DB_PASSWORD=
+DB_DATABASE=darafebase
+DB_USERNAME=daraba723463772
+DB_PASSWORD=daraba82903065
 
 BROADCAST_DRIVER=log
 CACHE_DRIVER=file

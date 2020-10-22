@@ -112,9 +112,45 @@
         <script type="text/javascript" src="{{asset('js/materialize.js') }}"></script>
         <script src="{{asset('js/darafe.js') }}"></script>
         <script src="https://secure.mlstatic.com/sdk/javascript/v1/mercadopago.js"></script>
+        <script>
+            window.Mercadopago.setPublishableKey('{{ config('services.mercadopago.key') }}');
+            function setCardNetwork()
+            {
+                var cardNumber = document.getElementById("cardNumber");
+                window.Mercadopago.getPaymentMethod(
+                    { "bin": cardNumber.value.substring(0,6) },
+                    function(status, response) {
+                        var cardNetwork = document.getElementById("cardNetwork");
+                        cardNetwork.value = response[0].id;
+                    }
+                );
+            }
+            
+        </script>
         <!-- Finalizan Scripts -->
-
-
-
+        <script>
+            //4075595716483764
+            var mercadoPagoForm = document.getElementById("paymentForm");
+            mercadoPagoForm.addEventListener('submit', function(e){
+                var tipopay = document.getElementById("payment_platform");
+                if (tipopay = 3) {
+                    tokencard();
+                }
+            });
+            function tokencard(){
+            window.Mercadopago.createToken(mercadoPagoForm, function(status, response) {
+                    if (status != 200 && status != 201) {
+                        var errors = document.getElementById("paymentErrors");
+                        errors.textContent = response.cause[0].description;
+                    } else {
+                        var cardToken = document.getElementById("cardToken");
+                    
+                        cardToken.value = response.id;
+                        alert("fdfdf");
+                        mercadoPagoForm.submit();
+                    }
+            });
+}
+        </script>
     </body>
 </html>

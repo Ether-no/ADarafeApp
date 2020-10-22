@@ -71,3 +71,45 @@ var idpay =document.getElementById('paymentMethod');
   });
 
 }
+
+//document.getElementById('cardNumber').addEventListener('change', guessPaymentMethod);
+// $(function(){
+//   $('#cardNumber').on('change',guessPaymentMethod);
+// });
+// function guessPaymentMethod(event) {
+//   let cardnumber = document.getElementById("cardNumber").value;
+//   if (cardnumber.length >= 6) {
+//       let bin = cardnumber.substring(0,6);
+//       window.Mercadopago.getPaymentMethod({
+//           "bin": bin
+//       }, setPaymentMethod);
+//   }
+// };
+// function setPaymentMethod(status, response) {
+//   if (status == 200) {
+//       let paymentMethod = response[0];
+//       document.getElementById('paymentMethodId').value = paymentMethod.id;
+
+//       if(paymentMethod.additional_info_needed.includes("issuer_id")){
+//           getIssuers(paymentMethod.id);
+//       } else {
+//           getInstallments(
+//               paymentMethod.id,
+//               document.getElementById('transactionAmount').value
+//           );
+//       }
+//   } else {
+//       alert(`payment method info error: ${response}`);
+//   }
+// }
+// function setCardNetwork(){
+//   var win =  window.Mercadopago;
+//   var  cardNumber = document.getElementById("cardNumber");
+//   win.getPaymentMethod(
+//       { "bin": cardNumber.value.substring(0,6) },
+//       function(status, response){
+//           var cardNetwork = document.getElementById("cardNetwork");
+//           console.log(response);
+//           cardNetwork.value = response[0].id;
+//   });
+// }
