@@ -277,6 +277,7 @@
         </form>
     </div>
 </div> --}}
+<div id="loading"></div>
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -359,15 +360,15 @@
                                         </div>
                                         <div class="form-group form-row">
                                             <div class="col-5">
-                                                <input class="form-control" type="text" data-checkout="cardholderName" placeholder="Your Name">
+                                                <input class="form-control" type="text" data-checkout="cardholderName" placeholder="Nombre">
                                             </div>
                                             <div class="col-5">
-                                                <input class="form-control" type="email" data-checkout="cardholderEmail" placeholder="email@example.com" name="email">
+                                                <input class="form-control" type="email" data-checkout="cardholderEmail" placeholder="email@ejemplo.com" name="email">
                                             </div>
                                         </div>
                                         <div class="form-group form-row">
                                             <div class="col">
-                                                <small class="form-text text-mute"  role="alert" >Your payment will be converted to {{ strtoupper(config('services.mercadopago.base_currency')) }}</small>
+                                                <small class="form-text text-mute"  role="alert" >Tu pago sera convertido a {{ strtoupper(config('services.mercadopago.base_currency')) }}</small>
                                             </div>
                                         </div>
                                         <div class="form-group form-row">
@@ -377,15 +378,8 @@
                                         </div>
                                         <input type="hidden" id="cardNetwork" name="card_network">
                                         <input type="hidden" id="cardToken" name="card_token">
+                                        <button type="button" class="btn btn-primary btn-lg" onclick="validardatosmercado()" >Validar datos</button>
                                     </div>
-                                    {{-- @foreach ($payment as $paymentPlatform)
-                                        <div
-                                            id="{{ $paymentPlatform->name }}Collapse"
-                                            class="collapse"
-                                            data-parent="#toggler">
-                                            @includeIf('components.' . strtolower($paymentPlatform->name) . '-collapse')
-                                        </div>
-                                    @endforeach --}}
                                 </div>
                             </div>
                         </div>
@@ -398,7 +392,7 @@
         </div>
     </div>
 </div>
-
+<div id="loading"></div>
 
 
 <div class="col s12 m4 right">
@@ -465,11 +459,29 @@
 </div><br>
 @push('scripts')
 <script>
-    var stripe = Stripe('pk_test_51HWRvQIyQxyFVKbETOD6qdDS8TQQo0I7l7D71w5YEzKAqjMUvdizXqFIu5UR7ZZFPP5v9v5diyVizq60D9O6B69y00dveBmkwQ');
-    var elements = stripe.elements();
-    var cardElement = elements.create('card');
-    cardElement.mount('#card-element');
-</script>
+    
+    
+    // mercadoPagoForm.addEventListener('submit', function(e) {
+    //     if (mercadoPagoForm.elements.payment_platform.value === 3) {
+    //         e.preventDefault();
 
+    //         mercadoPago.createToken(mercadoPagoForm, function(status, response) {
+    //             if (status != 200 && status != 201) {
+    //                 var errors = document.getElementById("paymentErrors");
+
+    //                 errors.textContent = response.cause[0].description;
+    //             } else {
+    //                 var cardToken = document.getElementById("cardToken");
+
+    //                 setCardNetwork();
+
+    //                 cardToken.value = response.id;
+
+    //                 mercadoPagoForm.submit();
+    //             }
+    //         });
+    //     }
+    // });
+</script>
 @endpush
 @endsection

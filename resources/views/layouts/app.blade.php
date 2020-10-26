@@ -122,35 +122,84 @@
                     function(status, response) {
                         var cardNetwork = document.getElementById("cardNetwork");
                         cardNetwork.value = response[0].id;
+                       
                     }
                 );
             }
             
         </script>
-        <!-- Finalizan Scripts -->
+     
         <script>
+            function validardatosmercado(){
+                tokencard();  
+            }
             //4075595716483764
-            var mercadoPagoForm = document.getElementById("paymentForm");
-            mercadoPagoForm.addEventListener('submit', function(e){
-                var tipopay = document.getElementById("payment_platform");
-                if (tipopay = 3) {
-                    tokencard();
-                }
-            });
-            function tokencard(){
-            window.Mercadopago.createToken(mercadoPagoForm, function(status, response) {
-                    if (status != 200 && status != 201) {
-                        var errors = document.getElementById("paymentErrors");
-                        errors.textContent = response.cause[0].description;
-                    } else {
-                        var cardToken = document.getElementById("cardToken");
+            // var mercadoPagoForm = document.getElementById("paymentForm");
+            // mercadoPagoForm.addEventListener('submit', function(e){
+            //     e.preventDefault();
+            //     var tipopay = document.getElementById("payment_platform");
+            //     if (tipopay = 3) {
+            //         tokencard();
+            //         setCardNetwork();
                     
-                        cardToken.value = response.id;
-                        alert("fdfdf");
-                        mercadoPagoForm.submit();
-                    }
-            });
-}
+            //     }
+            // });
+            // function tokencard(){
+            // window.Mercadopago.createToken(mercadoPagoForm, function(status, response) {
+            //         if (status != 200 && status != 201) {
+            //             var errors = document.getElementById("paymentErrors");
+            //             errors.textContent = response.cause[0].description;
+        
+            //         } else {
+        
+            //             var cardToken = document.getElementById("cardToken");
+            //             cardToken.value = response.id;  
+            //         }
+            //     });
+            // }
+    //     function validateForm(){
+    //     var mercadoPagoForm = document.getElementById("paymentForm");
+    //     if(mercadoPagoForm.value === 3){
+    //         mercadoPago.createToken(mercadoPagoForm, function(status, response) {
+    //             if (status != 200 && status != 201) {
+    //                 var errors = document.getElementById("paymentErrors");
+    //                 errors.textContent = response.cause[0].description;
+    //             } else {
+    //                 var cardToken = document.getElementById("cardToken");
+
+    //                 setCardNetwork();
+    //                 tokencard();
+    //                 cardToken.value = response.id;
+    //                 if(cardToken.value != ""){
+    //                     alert("sigue vacio");
+    //                     console.log("entro");
+    //                     return false;
+    //                 }else{
+    //                     return true;
+    //                 }
+    //             }
+    //         });
+    //     }
+    // }
+    function tokencard(){
+        document.getElementById("loading").style.display = "block";
+        setTimeout('tempvalidador()',5000);
+        var mercadoPagoForm = document.getElementById("paymentForm");
+        window.Mercadopago.createToken(mercadoPagoForm, function(status, response) {
+            if (status != 200 && status != 201) {
+                var errors = document.getElementById("paymentErrors");
+                errors.textContent = response.cause[0].description;
+            } else {
+                var cardToken = document.getElementById("cardToken");
+                cardToken.value = response.id; 
+                
+            }
+        });
+    }
+    function tempvalidador(){
+        document.getElementById("loading").style.display = "none";
+    }
         </script>
+        <!-- Finalizan Scripts -->
     </body>
 </html>

@@ -113,3 +113,5 @@ var idpay =document.getElementById('paymentMethod');
 //           cardNetwork.value = response[0].id;
 //   });
 // }
+
+// Strongly recommended: Hide loader after 20 seconds, even if the page hasn't finished loading
