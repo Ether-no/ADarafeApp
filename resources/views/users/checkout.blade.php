@@ -286,7 +286,7 @@
                 <form action="{{route('pay')}}" method="POST" id="paymentForm">
                         @csrf
 
-                        <div class="row">
+                        <div class="row" style="display: none">
                             <div class="col-auto">
                                 <label>¿Cuanto se va a pagar?</label>
                                 @foreach($cartotal as $total)
