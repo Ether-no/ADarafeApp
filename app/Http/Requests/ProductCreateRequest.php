@@ -28,7 +28,7 @@ class ProductCreateRequest extends FormRequest
             'descripcion' => 'required',
             'RFC' => 'required',
             'material' => 'required',
-            'Foto' => 'required|mimes:jpg,jpeg,png|max:500',
+            'Foto' => 'required|mimes:jpg,jpeg,png|max:3000',
             'kilataje' => 'required',
             'precio' => 'required|Numeric',
             'id_cat' => 'required|integer',

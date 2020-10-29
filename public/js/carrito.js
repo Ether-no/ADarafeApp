@@ -12,6 +12,10 @@ function grab(catid){
       
     });
 }
+function cambiarsrcdetalle(src){
+  $('#dynamicimgdetalle').attr('src','http://127.0.0.1:8000/' + src);
+}
+
 function guardargrabado(){
     $.get('/api/'+catid+'/cartt/', function(datos){});
 }

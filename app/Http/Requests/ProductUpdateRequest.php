@@ -28,7 +28,7 @@ class ProductUpdateRequest extends FormRequest
             'descripcion' => 'required',
             'RFC' => 'required',
             'material' => 'required',
-            'Foto' => 'mimes:jpg,jpeg,png|max:500',
+            'Foto' => 'mimes:jpg,jpeg,png|max:3000',
             'kilataje' => 'required',
             'precio' => 'required|Numeric',
             'id_cat' => 'required|integer',

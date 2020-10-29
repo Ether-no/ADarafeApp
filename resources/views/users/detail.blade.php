@@ -33,13 +33,13 @@
 
     <div class="row">
         <div class="col s12 m6">
-            <img class="responsive-img" src="{{asset($detalles->Foto)}}" alt="">
+            <img id="dynamicimgdetalle" class="responsive-img" src="{{asset($detalles->Foto)}}" alt="">
 
             <div class="row">
                 {{-- Falta arreglar dettalles fotos --}}
-                <div class="col s3"><img class="responsive-img z-depth-1" src="{{asset($detalles->fotovista1)}}" alt=""></div>
-                <div class="col s3"><img class="responsive-img z-depth-1" src="{{asset($detalles->fotovista2)}}" alt=""></div>
-                <div class="col s3"><img class="responsive-img z-depth-1" src="{{asset($detalles->Foto)}}" alt=""></div>
+                <div class="col s3"><img class="responsive-img z-depth-1" src="{{asset($detalles->fotovista1)}}" alt="" onclick="cambiarsrcdetalle('{{$detalles->fotovista1}}')"></div>
+                <div class="col s3"><img class="responsive-img z-depth-1" src="{{asset($detalles->fotovista2)}}" alt="" onclick="cambiarsrcdetalle('{{$detalles->fotovista2}}')"></div>
+                <div class="col s3"><img class="responsive-img z-depth-1" src="{{asset($detalles->Foto)}}" alt="" onclick="cambiarsrcdetalle('{{$detalles->Foto}}')"></div>
             </div>
         </div>
 
