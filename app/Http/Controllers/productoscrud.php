@@ -56,6 +56,7 @@ class productoscrud extends Controller
      */
     public function store(ProductCreateRequest $request)
     {
+        
         $tags = explode(',',$request->tags);
          //algo general...
             //enviamos los datos a la vista
@@ -145,6 +146,7 @@ class productoscrud extends Controller
     {
 
         $datosproducto = request()->except(['_token','_method']);
+
         if($request->hasFile('Foto')){
             $productos = producto::findOrFail($id);
             unlink($productos->Foto);
