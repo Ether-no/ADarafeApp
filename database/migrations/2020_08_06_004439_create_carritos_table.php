@@ -15,8 +15,8 @@ class CreateCarritosTable extends Migration
     {
         Schema::create('carritos', function (Blueprint $table) {
             $table->bigIncrements('idcar');
-            $table->boolean('activo');
-            $table->boolean('comprado');
+            $table->boolean('activo')->default(0);
+            $table->boolean('comprado')->default(0);
             $table->boolean('grabado');
             $table->integer('cantidad');
             $table->string('foto');

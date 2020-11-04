@@ -15,6 +15,8 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('css/helpers.css') }}">
     <script src="https://secure.mlstatic.com/sdk/javascript/v1/mercadopago.js"></script>
     <script src="https://kit.fontawesome.com/f7e5c22dfe.js" crossorigin="anonymous"></script>
+    <script src="https://cib.banorte.com/orquestador/resources/js/jquery-3.3.1.js" type="text/javascript"></script>
+    <script src="https://cib.banorte.com/orquestador/lightbox/checkout.js" type="text/javascript"></script>
     <title>Darafe | @yield('title')</title>
 </head>
 

@@ -59,6 +59,7 @@ Route::view('contact', 'users.contact')->name('contact'); //ok
 
 // recursos para carrito
 Route::get('/cart', 'CartController@index')->name('cart.index');
+Route::get('/mispedidos', 'productoscomprados@index')->name('mispedidos.index');
 Route::post('/cart', 'CartController@store')->name('cart.store');
 Route::patch('/cart/{product}', 'CartController@update')->name('cart.update');
 Route::delete('/cart/{product}', 'CartController@destroy')->name('cart.destroy');

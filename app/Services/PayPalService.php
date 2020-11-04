@@ -4,6 +4,17 @@ namespace App\Services;
 
 use Illuminate\Http\Request;
 use App\Traits\ConsumesExternalServices;
+use Gloudemans\Shoppingcart\Facades\Cart;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
+use App\producto;
+use App\User;
+use App\carrito;
+use App\carritosgrabado;
+use App\productoscomprado;
+use Exception;
+use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 class PayPalService
 {
@@ -62,8 +73,29 @@ class PayPalService
             $payment = $payment->purchase_units[0]->payments->captures[0]->amount;
             $amount = $payment->value;
             $currency = $payment->currency_code;
+            if (auth()->user()){
+                $userlog = auth()->user()->id;
+                $idcarrito = DB::table('carritos')
+                ->where([['activo', '=',1],['comprado','=',0],['id', '=', $userlog]])
+                ->get();
+                $cart=DB::table('carritos')
+                ->join('users', 'users.id', '=', 'carritos.id')
+                ->select(DB::raw('SUM(carritos.total) as Total'))
+                ->where([['carritos.id','=', $userlog],['carritos.comprado','=',0]])
+                ->get();
+                $compra = productoscomprado::create([
+                    'cantidad' => $cart[0]->Total,
+                    'activo' => 1,
+                    'enviado' => 0,
+                    'id' => $userlog
+                ]);
+                foreach($idcarrito as $id){
+                    carrito::find($id)->update(['id_compra' => $compra->id_compra]);
+                }
+
+            }
             toast('Gracias por tu compra','success');
-           return redirect()->action('indexController@index');
+            return redirect()->action('productoscomprados@index');
         }
         toast('¡Ocurrio un error porfavor intente de nuevo!','error');
         return redirect()->action('indexController@index');

@@ -14,7 +14,7 @@ class CreateDireccionesTable extends Migration
     public function up()
     {
         Schema::create('direcciones', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->bigIncrements('id_direccion');
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
             $table->string('nombre')->nullable();

@@ -110,14 +110,14 @@
 
                         <li>
                             <a class="black-text" href="{{ route('cart.index') }}">Carrito
-
                                 @if (Cart::instance('default')->count() > 0)
-                                <span class="cart-count">{{ Cart::instance('default')->count() }}</span>
+                                    <span class="cart-count">{{ Cart::instance('default')->count() }}</span>
                                 @endif
-
                             </a>
                         </li>
-
+                        <li>
+                            <a class="black-text" href="{{ route('mispedidos.index') }}">Mis Pedidos</a>
+                        </li>
                     </div>
                 </ul>
             </div>

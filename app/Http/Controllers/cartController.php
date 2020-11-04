@@ -33,13 +33,13 @@ class CartController extends Controller
         if (auth()->user()){
             $userlog = auth()->user()->id;
             $idcarrito = DB::table('carritos')
-                ->where([['activo', '=',1],['id', '=', $userlog]])
+                ->where([['activo', '=',1],['comprado','=',0],['id', '=', $userlog]])
                 ->get();
 
             $cart=DB::table('carritos')
                 ->join('users', 'users.id', '=', 'carritos.id')
                 ->select(DB::raw('SUM(carritos.total) as Total'))
-                ->where('carritos.id','=', $userlog)
+                ->where([['carritos.id','=', $userlog],['carritos.comprado','=',0]])
                 ->get();
           return view('users.cart', compact('mightAlsoLike', 'destacados','idcarrito','totalcarrito','cart'));
         }else{
@@ -62,6 +62,7 @@ class CartController extends Controller
 
         /* dd($cart); */
     }
+    
     /**
      * Show the form for creating a new resource.
      *
