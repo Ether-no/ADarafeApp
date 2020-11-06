@@ -9,10 +9,10 @@
 
             <ul>
                 <li>
-                    <a href="#" class="bread-info-gen">Home /</a>
+                    <a href="{{route('index')}}" class="bread-info-gen">Home /</a>
                 </li>
                 <li>
-                    <a class="bread-info-gen-strong">Mi carrito / </a>
+                    <a href="{{ route('cart.index')}}"class="bread-info-gen">Mi carrito / </a>
                 </li>
                 <li>
                     <a class="bread-info-gen-strong">Realizar pago</a>
@@ -207,14 +207,8 @@
             <button>Submit Payment</button>
         </form> --}}
 
-
-
-
-
-
-
         {{-- <div class="col s12 m4 right">
-            <h4 class="font-h">Total a pagar</h4>
+            <h4 class="font-h">Total a pagar test</h4>
             <div class="card grey lighten-5">
                 <div class="card-content"><br>
 
@@ -277,22 +271,34 @@
         </form>
     </div>
 </div> --}}
+
 <div id="loading"></div>
+
+
+<!-- ************************************************************************************************* -->
+<!-- Inicia metodos de pago -->
+<!-- ************************* -->
+<!-- ************Abre el Row************* -->
+<div class="row">
+<div class="col s12 m6">
+<!-- ************************* -->
+
 <div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
+<h4 class="font-h center">¡Seleccione su forma de pago!</h4>
+    <div class="">
+        <div class="">
             <div class="card">
                 <div class="card-body">
                 <form action="{{route('pay')}}" method="POST" id="paymentForm">
                         @csrf
 
-                        <div class="row" style="display: none">
-                            <div class="col-auto">
+                        <div class="" style="display: none">
+                            <div class="">
                                 <label>¿Cuanto se va a pagar?</label>
                                 @foreach($cartotal as $total)
                                 <input
                                     type="number"
-                                    class="form-control"
+                                    class=""
                                     name="value"
                                   value="{{$total->Total}}" required>
                                   @endforeach
@@ -310,15 +316,15 @@
                                     @endforeach
                                 </select>
                             </div>
-                        </div>
-                        <div class="row mt-3">
-                            <div class="col">
-                                <label>Seleccione la forma de pago:</label>
+                        </div><br>
+                        <div class="center">
+                            <div class=" container">
                                 <div class="form-group" id="toggler">
-                                    <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                                    <div class="" data-toggle="">
                                         @foreach ($payment as $paymentPlatform)
+                                        
                                             <label
-                                                class="btn btn-outline-secondary rounded m-2 p-1"
+                                                class="center"
                                                 onclick="tipodepago('{{ $paymentPlatform->name }}')">
                                                 <input
                                                     type="radio"
@@ -337,40 +343,49 @@
                                         <small class="form-text text-muted" id="card-result" role="alert"></small>
                                         <input type="text" name="payment_method" id="paymentMethod">                                       
                                     </div>
+
+
                                     <div id="paypal" >
                                         <h3>Se direcionara a paypal</h3>
                                     </div>
-                                    <div id="mercadopago">
-                                        <div class="col-5">
-                                            <input class="form-control" type="text" id="cardNumber" data-checkout="cardNumber" placeholder="Card Number" onchange="setCardNetwork();">
+
+
+                                    <div id="mercadopago"><br>
+                                        <div class="input-field">
+                                            <input class="validate" type="text" id="cardNumber" data-checkout="cardNumber" onchange="setCardNetwork();">
+                                            <label for="cardNumber">Número de tarjeta</label>
+                                        </div>
+
+                                        <div class="input-field">
+                                            <input class="validate" type="text" data-checkout="securityCode">
+                                            <label for="securityCode">Código de Seguridad "CVC"</label>
+                                        </div>
+                                                                        
+                                        <div class="input-field">
+                                            <input class="validate" type="text" data-checkout="cardExpirationMonth">
+                                            <label for="cardExpirationMonth">Mes de expiración "MM"</label>
                                         </div>
                                     
-                                        <div class="col-2">
-                                            <input class="form-control" type="text" data-checkout="securityCode" placeholder="CVC">
+                                        <div class="input-field">
+                                            <input class="validate" type="text" data-checkout="cardExpirationYear">
+                                            <label for="cardExpirationYear">Año de expiración "YY"</label>
                                         </div>
-                                    
-                                        <div class="col-1"></div>
-                                    
-                                        <div class="col-1">
-                                            <input class="form-control" type="text" data-checkout="cardExpirationMonth" placeholder="MM">
+
+                                        <div class="input-field">
+                                            <input class="validate" type="text" data-checkout="cardholderName">
+                                            <label for="cardholderName">Nombre</label>
                                         </div>
-                                    
-                                        <div class="col-1">
-                                            <input class="form-control" type="text" data-checkout="cardExpirationYear" placeholder="YY">
+                                        
+                                        <div class="input-field">
+                                            <input class="Validate" type="email" data-checkout="cardholderEmail" name="email">
+                                            <label for="cardHolderEmail">Email</label>                    
                                         </div>
-                                        <div class="form-group form-row">
-                                            <div class="col-5">
-                                                <input class="form-control" type="text" data-checkout="cardholderName" placeholder="Nombre">
-                                            </div>
-                                            <div class="col-5">
-                                                <input class="form-control" type="email" data-checkout="cardholderEmail" placeholder="email@ejemplo.com" name="email">
-                                            </div>
-                                        </div>
+
                                         <div class="form-group form-row">
                                             <div class="col">
                                                 <small class="form-text text-mute"  role="alert" >Tu pago sera convertido a {{ strtoupper(config('services.mercadopago.base_currency')) }}</small>
                                             </div>
-                                        </div>
+                                        </div> <br>
                                         <div class="form-group form-row">
                                             <div class="col">
                                                 <small class="form-text text-danger" id="paymentErrors" role="alert"></small>
@@ -382,21 +397,31 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div><br>
                         <div class="text-center mt-3">
                             <button type="submit" id="payButton" class="btn btn-primary btn-lg" >Pagar</button>
-                        </div>
+                        </div><br>
                     </form>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+<!-- ************************* -->
+</div>
+<!-- ************************* -->
+
 <div id="loading"></div>
 
 
-<div class="col s12 m4 right">
-    <h4 class="font-h">Total a pagar</h4>
+
+<!-- Inicia detalle de pago -->
+<!-- ************************* -->
+<div class="col s12 m6">
+<!-- ************************* -->
+<div class="container">
+    <h4 class="font-h center">Total a pagar</h4>
     <div class="card grey lighten-5">
         <div class="card-content"><br>
 
@@ -421,6 +446,17 @@
         </div>
     </div>
 </div>
+
+<!-- ************************* -->
+</div>
+<!-- *************Cierra el Row************ -->
+</div>
+<!-- ************************* -->
+
+<!-- ************************************************************************************************* -->
+
+<!-- Inicia productos destacados -->
+
 <div class="container">
     <h4 class="font-h center">Productos destacados</h4>
     <hr class="hr-color">

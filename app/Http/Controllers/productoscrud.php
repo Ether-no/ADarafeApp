@@ -154,17 +154,17 @@ class productoscrud extends Controller
         }
         if($request->hasFile('fotograbado')){
             $productos = producto::findOrFail($id);
-            unlink($productos->Foto);
+            unlink($productos->fotograbado);
             $datosproducto['fotograbado']=$request->file('fotograbado')->store('uploads','public');
         }
         if($request->hasFile('fotovista1')){
             $productos = producto::findOrFail($id);
-            unlink($productos->Foto);
+            unlink($productos->fotovista1);
             $datosproducto['fotovista1']=$request->file('fotovista1')->store('uploads','public');
         }
         if($request->hasFile('fotovista2')){
             $productos = producto::findOrFail($id);
-            unlink($productos->Foto);
+            unlink($productos->fotovista2);
             $datosproducto['fotovista2']=$request->file('fotovista2')->store('uploads','public');
         }
         producto::where('id_productos', "=" , $id)->update($datosproducto);

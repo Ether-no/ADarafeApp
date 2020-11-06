@@ -9,7 +9,7 @@
 
             <ul>
                 <li>
-                    <a href="#" class="bread-info-gen">Inicio/</a>
+                    <a href="{{route('index')}}" class="bread-info-gen">Inicio/</a>
                 </li>
                 <li>
                     <a class="bread-info-gen-strong">Mis Pedidos</a>

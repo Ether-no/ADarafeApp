@@ -6,7 +6,7 @@
 
             <ul>
                 <li>
-                    <a href="#" class="bread-info-gen">Carrito/</a>
+                    <a href="{{route('index')}}" class="bread-info-gen">Carrito/</a>
                 </li>
                 <li>
                     <a class="bread-info-gen-strong">Guardar grabado y numero</a>

@@ -41,7 +41,7 @@ class CartController extends Controller
                 ->select(DB::raw('SUM(carritos.total) as Total'))
                 ->where([['carritos.id','=', $userlog],['carritos.comprado','=',0]])
                 ->get();
-          return view('users.cart', compact('mightAlsoLike', 'destacados','idcarrito','totalcarrito','cart'));
+          return view('users.cart', compact('mightAlsoLike', 'destacados','idcarrito','cart'));
         }else{
             return view('users.cartnolog', compact('mightAlsoLike', 'destacados'));
         }  

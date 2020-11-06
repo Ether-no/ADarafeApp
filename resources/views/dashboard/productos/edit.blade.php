@@ -70,11 +70,43 @@
 
 
 
+
+        @if($productos->grabado == 0)
+        <p>Foto Grabado</p>
+        <div class="center">
+			<img src="{{ asset($productos->fotograbado)}}" alt="200" width="200"><br>
+            <input type="file" name="fotograbado" class="" id="fotograbado" value="">
+            @if ($errors->has('fotograbado'))
+                <small class="form-text text-danger">{{ $errors->first('fotograbado') }}</small>
+            @endif
+        </div><br>
+        @endif
+
+
+        <p>Foto vista 1</p>
         <div class="center">
 			<img src="{{ asset($productos->Foto)}}" alt="200" width="200"><br>
             <input type="file" name="Foto" class="" id="Foto" value="">
             @if ($errors->has('Foto'))
                 <small class="form-text text-danger">{{ $errors->first('Foto') }}</small>
+            @endif
+        </div><br>
+
+        <p>Foto vista 2</p>
+        <div class="center">
+			<img src="{{ asset($productos->fotovista1)}}" alt="200" width="200"><br>
+            <input type="file" name="fotovista1" class="" id="fotovista1" value="">
+            @if ($errors->has('fotovista1'))
+                <small class="form-text text-danger">{{ $errors->first('fotovista1') }}</small>
+            @endif
+        </div><br>
+        
+        <p>Foto vista 3</p>
+        <div class="center">
+			<img src="{{ asset($productos->fotovista2)}}" alt="200" width="200"><br>
+            <input type="file" name="fotovista2" class="" id="fotovista2" value="">
+            @if ($errors->has('fotovista2'))
+                <small class="form-text text-danger">{{ $errors->first('fotovista2') }}</small>
             @endif
         </div><br>
 
