@@ -7,29 +7,29 @@
                     <ul>
                         <li>
                             <i class="fas fa-phone"></i>
-                                <a href="tel:+7222222222"
+                                <a href="tel:+7222158046"
                                     class="tooltipped header-info-gen"
                                     data-position="right"
                                     data-tooltip="Telefonos">
-                                    (722) 2222 222
+                                    (722) 215 8046
                                 </a>
                         </li>
                         <li>
                             <i class="far fa-envelope"></i>
-                                <a href="mailto:mail@info.com"
+                                <a href="mailto:contacto@darafe.com"
                                     class="tooltipped header-info-gen"
                                     data-position="right"
                                     data-tooltip="Correo Electrónico">
-                                    mail@info.com
+                                    contacto@darafe.com
                                 </a>
                         </li>
                         <li>
                             <i class="fas fa-map-marker-alt"></i>
-                                <a href="#!"
+                                <a href="https://g.page/centro-joyero-toluca?share"
                                     class="tooltipped header-info-gen"
                                     data-position="right"
                                     data-tooltip="Ubicación">
-                                    Toluca México
+                                    Toluca EdoMex
                                 </a>
                         </li>
                     </ul>
@@ -40,7 +40,7 @@
                 <p class="">
                     <ul class="social-icons social-icons-transparent">
                         <li class="social-icons-facebook  right">
-                            <a href="http://www.facebook.com/"
+                            <a href="https://www.facebook.com/darafejoyeria"
                                 class="tooltipped"
                                 data-position="left"
                                 data-tooltip="Facebook"
@@ -51,7 +51,7 @@
                         </li>
 
                         <li class="social-icons-instagram  right">
-                            <a href="http://www.instagram.com/"
+                            <a href="https://www.instagram.com/darafejoyas/"
                                 class="tooltipped"
                                 data-position="left"
                                 data-tooltip="Instagram"
@@ -62,19 +62,21 @@
                         </li>
 
                         <li class="social-icons-twitter  right">
-                            <a href="{{ route('contact') }}"
+                            <a href="{{route('build')}}"
                                 class="tooltipped"
                                 data-position="left"
                                 data-tooltip="Contacto">
+                                <!-- {{ route('contact') }}  -->
                                 <i class="fas fa-life-ring" name="Contacto"></i>
                             </a>
                         </li>
 
                         <li class="social-icons-darafe  right">
-                                <a href="{{ route('ours') }}"
+                                <a href="{{route('build')}}"
                                 class="tooltipped"
                                 data-position="left"
                                 data-tooltip="Nosotros">
+                                <!-- {{ route('ours') }}  -->
                                 <i class="fas fa-users" name="Nosotros"></i>
                             </a>
                         </li>

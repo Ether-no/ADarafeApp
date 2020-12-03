@@ -118,3 +118,5 @@ Route::get('/payments/approval', 'PaymentController@approval')->name('approval')
 Route::get('/payments/cancelled', 'PaymentController@cancelled')->name('cancelled');
 
 //Route::post('/pagar','CheckoutController');
+
+Route::view('/build', 'layouts.error.build')->name('build');

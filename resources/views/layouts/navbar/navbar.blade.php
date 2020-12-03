@@ -1,6 +1,6 @@
-<!-- Inicia Navbar -->
+<!-- Inicia Navbar navbar.blade.php -->
 
-    <div class="navbar ">
+<div class="navbar ">
     <nav class="white">
         <div class="nav-wrapper navbar-padd-gen">
         <a href="{{ route('index') }}" class="brand-logo sidenav-trigger black-text">
@@ -85,7 +85,8 @@
                                 href="{{ route('register') }}">Registro
                             </a>
                         </li>
-                        @endif @else
+                        @endif 
+                        @else
                         <li>
                             <a
                                 class="black-text"
@@ -106,6 +107,10 @@
                         <li>
                             <a class="black-text" href="{{ route('account.index') }}">&#64;{{auth()->user()->name}}</a>
                         </li>
+
+                        <li>
+                            <a class="black-text" href="{{ route('mispedidos.index') }}">Mis Pedidos</a>
+                        </li>
                         @endguest
 
                         <li>
@@ -115,9 +120,7 @@
                                 @endif
                             </a>
                         </li>
-                        <li>
-                            <a class="black-text" href="{{ route('mispedidos.index') }}">Mis Pedidos</a>
-                        </li>
+
                     </div>
                 </ul>
             </div>
@@ -273,6 +276,8 @@
                                                 </a>
                                             </li>
                                             @endif @else
+
+
                                             <li>
                                                 <a
                                                     class="waves-effect waves-light btn-small"
@@ -290,15 +295,20 @@
                                                     @csrf
                                                 </form>
                                             </li>
+
+                                            <li>
+                                                <a href="{{route('mispedidos.index')}}" class="waves-effect waves-light btn-small"><i class="fa fa-shopping-basket" aria-hidden="true"></i>
+                                                        Mis compras</a>
+                                            </li>
                                             @endguest
 
                                             <li>
-                                                <a href="#!" class="waves-effect waves-light btn-small blue darken-4"><i class="fa fa-facebook-official white-text" aria-hidden="true"></i>
+                                                <a href="https://www.facebook.com/darafejoyeria" target="_blank" class="waves-effect waves-light btn-small blue darken-4"><i class="fa fa-facebook-official white-text" aria-hidden="true"></i>
                                                         Facebook</a>
                                             </li>
 
                                             <li>
-                                                    <a href="#!" class="waves-effect waves-light btn-small deep-purple darken-4"><i class="fa fa-instagram white-text" aria-hidden="true"></i>
+                                                    <a href="https://www.instagram.com/darafejoyas" target="_blank" class="waves-effect waves-light btn-small deep-purple darken-4"><i class="fa fa-instagram white-text" aria-hidden="true"></i>
                                                         Instragram</a>
                                             </li><br>
 

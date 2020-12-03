@@ -21,7 +21,7 @@
 
             <ul>
                 <li>
-                    <a class="bread-info-gen-strong">Inicio /ESTA PAGINA SE ENCUENTRA EN UN ESTADO DE PRUEBA</a>
+                    <a class="bread-info-gen-strong">Inicio /</a>
                 </li>
             </ul>
 
