@@ -79,11 +79,11 @@
 
                         <div class="login-margin">
                             <a
-                                href="#"
+                                href="{{ url('/auth/redirect/facebook') }}"
                                 class="btn-floating btn-large waves-effect waves-light blue darken-4 login-margin-right">
                                 <i class="fab fa-facebook-f"></i>
                             </a>
-                            <a href="#" class="btn-floating btn-large waves-effect waves-light red">
+                            <a href="{{ url('/auth/redirect/google') }}" class="btn-floating btn-large waves-effect waves-light red">
                                 <i class="fab fa-google"></i>
                             </a>
                         </div>

@@ -54,4 +54,16 @@ return [
         'secret' => env('STRIPE_SECRET'),
         'class' => App\Services\StripeService::class,
     ],
+
+    'google' => [
+        'client_id' => '779127417132-b7ojpr0pd0oddpvt146rcj229v8ksd6s.apps.googleusercontent.com',
+        'client_secret' => 'XeFpcmCvM0DYD88-vpKycqYq',
+        'redirect' => 'http://onroot.com.mx/SandBox_Darafe/public/callback/google',
+    ],
+
+    'facebook' => [
+        'client_id' => '391907878806630',
+        'client_secret' => 'deea06605dd83d82eb1e43c6071d64a8',
+        'redirect' => 'http://onroot.com.mx/SandBox_Darafe/public/callback/facebook',
+      ], 
 ];

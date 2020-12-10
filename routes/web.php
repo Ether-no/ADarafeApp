@@ -120,3 +120,14 @@ Route::get('/payments/cancelled', 'PaymentController@cancelled')->name('cancelle
 //Route::post('/pagar','CheckoutController');
 
 Route::view('/build', 'layouts.error.build')->name('build');
+
+
+/* Login con Google */
+
+Route::get('/auth/redirect/{provider}', 'GoogleLoginController@redirect');
+Route::get('/callback/{provider}', 'GoogleLoginController@callback');
+
+/* Login con Facebook */
+
+Route::get('/auth/redirect/{provider}', 'SocialController@redirect');
+Route::get('/callback/{provider}', 'SocialController@callback');
