@@ -58,7 +58,7 @@
                 color: black;
             }
         </style>
-        <title>Index</title>
+        <title>Darafe|Store</title>
     </head>
 
     <body>

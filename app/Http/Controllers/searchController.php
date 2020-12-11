@@ -52,7 +52,7 @@ class searchController extends Controller
         //dd($contar);
         if ($contar === 0) {
             Alert::error('¡No se encontraron productos!', 'Intente de nuevo');
-            return redirect()->action('productoscrud@create');
+            return view('dashboard.productos.search', compact('productos'));
         } else {
             return view('dashboard.productos.search', compact('productos'));
         }

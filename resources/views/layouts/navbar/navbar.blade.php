@@ -190,13 +190,24 @@
             </li>
 
             <center>
-                <li>
+                @guest
+                    <li>
+                        <center>
+                            <p>Invitado</p>
+                        </center>
+                    </li>
+                @else
+                    <li>
+                        <a class="black-text" href="{{ route('account.index') }}">&#64;{{auth()->user()->name}} {{auth()->user()->apellidos}}</a>
+                    </li>
+                @endguest
+<!--                 <li>
                     <a class="black-text" href="{{ route('cart.index') }}">Carrito
                         @if (Cart::instance('default')->count() > 0)
                         <span class="cart-count">{{ Cart::instance('default')->count() }}</span>
                         @endif
                     </a>
-                </li>
+                </li> -->
             </center>
 
             <li>
@@ -246,19 +257,21 @@
                                             <a href="#!">
                                                 <img class="icon-sidebar-opt" src="{{asset('img/gem.png')}}" alt="">Caballeros</a>
                                             </li>
+
                                             <li>
-                                            <a class="waves-effect waves-light btn-small" href="{{ route('contact') }}">
+                                            <a href="{{ route('cart.index') }}" class="waves-effect waves-light btn-small">
+                                                    <i class="material-icons">shopping_cart</i>
+                                                    Mi carrito</a>
+                                            </li>
+
+                                            <li>
+                                            <a class="waves-effect waves-light btn-small" href="{{route('build')}}">
                                                     <i class="fas fa-life-ring"></i>Ayuda</a>
                                             </li>
                                             <li>
                                                 <a href="#modal_search" class="waves-effect waves-light btn-small modal-trigger">
                                                     <i class="fas fa-search"></i>
                                                     Buscar</a>
-                                            </li>
-                                            <li>
-                                            <a href="{{ route('cart.index') }}" class="waves-effect waves-light btn-small">
-                                                    <i class="material-icons">shopping_cart</i>
-                                                    Mi carrito</a>
                                             </li>
 
                                             @guest
@@ -310,7 +323,7 @@
                                             <li>
                                                     <a href="https://www.instagram.com/darafejoyas" target="_blank" class="waves-effect waves-light btn-small deep-purple darken-4"><i class="fa fa-instagram white-text" aria-hidden="true"></i>
                                                         Instragram</a>
-                                            </li><br>
+                                            </li><br><br><br><br>
 
                                         </ul>
                                         <!-- Termina sidebar -->

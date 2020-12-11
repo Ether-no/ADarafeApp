@@ -17,7 +17,7 @@
     <script src="https://kit.fontawesome.com/f7e5c22dfe.js" crossorigin="anonymous"></script>
     <script src="https://cib.banorte.com/orquestador/resources/js/jquery-3.3.1.js" type="text/javascript"></script>
     <script src="https://cib.banorte.com/orquestador/lightbox/checkout.js" type="text/javascript"></script>
-    <title>Darafe | @yield('title')</title>
+    <title>Darafe Admin | @yield('title')</title>
 </head>
 
 <body>
