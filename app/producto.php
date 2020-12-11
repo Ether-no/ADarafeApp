@@ -23,4 +23,23 @@ class producto extends Model
         return $query->inRandomOrder()->take(4);
     }
 
+    /* Scope Search panel admin */
+    public function scopeProducts($query, $productos){
+        if($productos){
+            return $query->where('producto', 'like', "%$productos%");
+        }
+    }
+
+    public function scopeKilataje($query, $kilatajes){
+        if($kilatajes){
+            return $query->where('kilataje', 'like', "%$kilatajes%");
+        }
+    }
+
+/*     public function scopeSearch($query, $kilataje, $product){
+        if( ($kilataje) && ($product) ){
+            return $query->where($kilataje, 'like', "%$product%");
+        }
+    } */
+
 }

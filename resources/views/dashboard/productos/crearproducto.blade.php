@@ -4,6 +4,40 @@
 
 @section('content')
 
+<!-- ******************************************************* -->
+<div class="container_dash">
+    <h3>Busqueda</h3><br>
+
+        <div class="row">
+            <form  action='{{url('/panel/search')}}' method='POST' enctype="multipart/form-data">
+            {{csrf_field()}}
+
+                <div class="input-field col s12 m5">
+                    <select name="kilataje">
+                        <option value="" disabled selected>Seleccione Kilataje</option>
+                        <option value="10k">10 Kilates</option>
+                        <option value="14k">14 Kilates</option>
+                        <option value="18k">18 Kilates</option>
+                    </select>
+                    <label>Kilataje</label>
+                </div> 
+
+                <div class="input-field col s6 m6">
+                    <input name="product" type="search" aria-label="Search" class="validate">
+                    <label for="product">Ingrese el nombre del producto</label>
+                </div>
+
+                <div class="col s6 m1">
+                    <button class="waves-effect waves-light btn" type="submit">Buscar</button>
+                </div>            
+            
+            </form>
+
+        </div>
+
+</div><br><br>
+<!-- ******************************************************* -->
+
 <div class="container_dash">
 
 <div class="row"><br>

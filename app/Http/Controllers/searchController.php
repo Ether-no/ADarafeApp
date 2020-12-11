@@ -8,6 +8,7 @@ use App\categoria;
 use App\subcategoria;
 use App\tag;
 use App\tagproducto;
+use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 
@@ -39,4 +40,23 @@ class searchController extends Controller
         } 
         return view('users.search',compact('search','categoria','subcategorias','producto'));
     }
+
+
+    public function searchProduct(Request $request){
+
+        $name = $request->get('product');
+        $kilate = $request->get('kilataje');
+        //dd($search);
+        $productos = producto::products($name)->kilataje($kilate)->paginate(9);
+        $contar = count($productos);
+        //dd($contar);
+        if ($contar === 0) {
+            Alert::error('¡No se encontraron productos!', 'Intente de nuevo');
+            return redirect()->action('productoscrud@create');
+        } else {
+            return view('dashboard.productos.search', compact('productos'));
+        }
+    }
+
+
 }

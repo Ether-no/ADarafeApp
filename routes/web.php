@@ -48,7 +48,7 @@ Route::get('navbar/productos', 'navbarCrud@productosIndex')->name('productos');/
 Route::resource('/','indexController');
 // Redirige a la vista detalle del producto
 Route::get('detalles/{id}', 'indexController@detail')->name('detalle');
-
+Route::get('detallepedidos/{id}', 'productoscomprados@detalle')->name('detallepedido');
 // redirige a usuarios normales al login
 Route::get('/home', 'HomeController@index')->name('home');
 
@@ -98,6 +98,7 @@ Route::get('stocks', 'dashboardController@stocks')->name('stocks'); //ok
 Route::get('users', 'dashboardController@users')->name('users'); // ok
 // Recursos de los productos
 Route::resource('/productos','productoscrud');
+Route::resource('/envios','enviosCrud');
 // Recursos de las caegorias
 Route::resource('/categorias','categoriacrud');
 // Recusos de las categorias
@@ -131,3 +132,7 @@ Route::get('/callback/{provider}', 'GoogleLoginController@callback');
 
 Route::get('/auth/redirect/{provider}', 'SocialController@redirect');
 Route::get('/callback/{provider}', 'SocialController@callback');
+
+/* Rutas busqueda productos panel admin */
+
+Route::post('/panel/search', 'searchController@searchProduct')->name('searchProd');
