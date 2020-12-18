@@ -44,12 +44,12 @@ class searchController extends Controller
 
     public function searchProduct(Request $request){
 
-        $name = $request->get('product');
+        $rfc = $request->get('RFC');
         $kilate = $request->get('kilataje');
         //dd($search);
-        $productos = producto::products($name)->kilataje($kilate)->paginate(9);
+        $productos = producto::rfcs($rfc)->kilataje($kilate)->paginate(9);
         $contar = count($productos);
-        //dd($contar);
+        //dd($productos);
         if ($contar === 0) {
             Alert::error('¡No se encontraron productos!', 'Intente de nuevo');
             return view('dashboard.productos.search', compact('productos'));

@@ -24,9 +24,9 @@ class producto extends Model
     }
 
     /* Scope Search panel admin */
-    public function scopeProducts($query, $productos){
-        if($productos){
-            return $query->where('producto', 'like', "%$productos%");
+    public function scopeRfcs($query, $rfc){
+        if($rfc){
+            return $query->where('RFC', 'like', "%$rfc%");
         }
     }
 

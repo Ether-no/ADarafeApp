@@ -24,8 +24,8 @@
                 </div> 
 
                 <div class="input-field col s6 m6">
-                    <input name="product" type="search" aria-label="Search" class="validate">
-                    <label for="product">Ingrese el nombre del producto</label>
+                    <input name="RFC" type="search" aria-label="Search" class="validate">
+                    <label for="RFC">Ingrese el RFC del producto</label>
                 </div>
 
                 <div class="col s6 m1">
